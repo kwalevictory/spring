@@ -1,0 +1,49 @@
+.livevideo{
+    width:100%;
+    height: 100vh;
+    position: relative;
+}
+.livevideo video{
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+}
+.livevideo .live-button{
+    position: absolute;
+    bottom: 13px;
+    left: 2%;
+    width: 96%;
+}
+.livevideo .live-button label,
+.livevideo .live-button p{
+    color: #ffffff;
+    font-size: 16px;
+}
+.livevideo .live-button p span{
+    margin-left: 6px;
+    border:1px solid #ffffff;
+    padding:3px 7px;
+    border-radius: 2px;
+}
+.livevideo .live-button label input{
+    display: block;
+    width:96%;
+    padding: 6px 4px;
+    outline: none;
+}
+.livevideo .live-icons{
+    display: flex;
+    justify-content: flex-end;
+}
+.livevideo .live-icons span{
+    width:35px;
+    height: 35px;
+    border:1px solid #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.livevideo .live-icons span:last-child{
+    margin-left: 10px;
+}

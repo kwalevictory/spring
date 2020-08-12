@@ -1,0 +1,44 @@
+.placemem {
+	margin: 0;
+	padding: 0;
+
+
+}
+
+.button-container-div{
+	text-align: center;
+	font-size: 34px;
+}
+.button-container-div button{
+	font-size: 60px;
+	cursor: pointer;
+	border-radius: 20px;
+}
+
+
+label{
+	top: 45px;
+	display: block;
+	text-align: center;
+	font-size: 56px;	
+}
+.placement label{
+
+	margin-top: 56px;	
+}
+input{
+
+	width: 100%;
+	padding: 1px 0;
+	border: none;
+	border-bottom: 1px solid #000;	
+	outline: 0;
+	font-size: 45px;
+}
+textarea{
+	width: 100%;
+		
+}
+.placement textarea{
+	margin-bottom: 50px;
+}

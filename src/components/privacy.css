@@ -1,0 +1,34 @@
+.privacy-modal{
+    width: 100%;
+    height: 100vh;
+    z-index: 120;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5;
+}
+.privacy-inner{
+    width: 95%;
+    height: 95vh;
+    border-radius: 20px;
+    background-color: #fff;
+}
+.privacy-inner p{
+    margin-top: 70px;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 30px;
+}
+.privacy-inner ul{
+    list-style: none;
+}
+.privacy-inner ul li:last-child{
+margin-bottom: 30px;
+}
+.privacy-modal .privacy-inner .body{
+    width:90%;
+    margin: auto;
+}

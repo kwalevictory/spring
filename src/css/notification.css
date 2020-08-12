@@ -1,0 +1,32 @@
+*{
+	margin: 0;
+
+}
+
+.container {
+	display: flex;
+    border-bottom: 1px solid #dadada;
+    position: relative;
+    text-align: center;
+    padding: 20px 0; 
+}
+.container .image-box {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+    margin-right: 16px;
+    position: relative;
+}
+.container p{
+	font-size: 35px;
+	position: absolute;
+}
+.contanier h2{
+	font-size: 34px;
+}
+.date {
+	position: absolute;
+	bottom: 10px;
+	font-size: 20px;
+	right: 10px;
+}

@@ -1,0 +1,13 @@
+.profile-icon{
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-icon> img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+	border:1px solid #f2f2f2;
+}

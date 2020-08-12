@@ -1,0 +1,12 @@
+.textinput{
+    margin-top: 10px;
+}
+.textinput textarea{
+    height: 100px;
+    width: 96%;
+    border:1px solid black;
+    border-radius: 10px;
+    outline: none;
+    padding: 10px 2%;
+    font-size: 18px;
+}

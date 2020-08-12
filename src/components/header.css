@@ -1,0 +1,136 @@
+
+.header .icon-bar {
+	width: 100%;
+    background-color: #cacaca;
+	overflow: auto;
+	border-bottom: 9px solid #dadada;
+    position: fixed;
+    z-index: 100;
+    min-height: 50px;
+
+}
+.header .icon-bar a {
+	float: left;
+	width: 20%;
+	text-align: center;
+	padding: 12px 0;
+	transition: all 0.3s ease;
+	color: #fff;
+	font-size: 24px;
+}
+
+.header .list-icons{
+    height: 90px;
+    width: 76%;
+    position: absolute;
+    top: 52px;
+    left: 12%;
+}
+.header ul {
+	position: fixed;
+    bottom: 0;
+    z-index: 100;
+    text-align: center;
+	width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+	background: #fff;
+	display: flex;
+	border-radius: 10px;
+	box-shadow: 0 10px 30px rgba(0,0,0.3);
+
+}
+.header ul li {
+	list-style: none;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	border-right: 1px solid rgba(0,0,0,0.2);
+}
+.header ul  li:last-child{
+	border-right: none;
+
+}
+.header ul li a {
+	text-decoration: none;
+	/* padding: 0 50px; */
+    display: flex;
+    
+}
+.header ul li a .icon {
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	overflow: hidden;
+	/* background: #ccc; */
+	/* margin: 0 auto 10px; */
+}
+.header ul li a .icon .fa {
+	width: 100%;
+	height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+	transition: 0.5s;
+	color: #000;
+
+}
+/* .header ul li a .name {
+	position: relative;
+	height: 20px;
+	width: 100%;
+	display: block;	
+} */
+
+.header ul li a .name span {
+	display: block;
+	position: relative;
+	color: #000;
+	font-size: 18px;
+	line-height: 20px;
+	transition: 0.5s;
+}
+.header ul li a .name span:before
+{
+	content: attr(data-text);
+	position: absolute;
+	bottom: -100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
+@media(max-width:767px){
+    .container{
+        width:95%
+    }
+    .top-inner li:nth-child(2), .top-inner li:nth-child(4){
+        font-size: 15px;
+    }
+}

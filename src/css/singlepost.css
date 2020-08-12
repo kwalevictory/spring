@@ -1,0 +1,58 @@
+.post,.timeline{
+	width:100%;
+    border-bottom: 9px solid #dadada;
+	background: #ffffff;	
+}
+.post .post-inner{
+	width: 95%;
+	margin: 0 auto;
+	height: 80px;	
+	display: grid;
+    grid-auto-flow: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.post .post-inner .profile-img{
+	width:58px;
+	height: 58px;
+	border-radius: 50%;
+	background: #000;
+}
+.post .post-inner  form{
+	width:100%;
+	height: 100%;
+	display: flex;
+	align-items:  center;
+	font-size: 1.1rem;
+}
+.post .post-icons{
+	display: flex;
+	border-top: 1px solid #dadada;
+	height: 37px;
+	align-items: center;
+	justify-content: center;
+}
+.post .post-icons ul{
+	list-style: none;
+	display: grid;
+	width: 90%;
+	grid-template-columns: 30% 30% 30%;
+	grid-column-gap: 5%;
+}
+.post .post-icons ul li{
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.post .post-icons ul li span{
+    margin-right: 5px;
+}
+.post .post-icons ul li:nth-child(2){
+	border-left: 1px solid #dadada;
+	border-right: 1px solid #dadada;
+}

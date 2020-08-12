@@ -1,0 +1,258 @@
+
+.chat p {
+	font-family: fantasy;
+	font: 10em;
+	text-align: center;
+	border:1px solid #dadada;
+}
+.chat .preview{
+	height: 180px;
+	width: 100%;
+	overflow: hidden;
+	background: #ffffff;
+    border-bottom: 5px solid #dadada;
+
+
+}
+.chat .preview .preview-inner{
+	width: 70%;
+	height: 45%;
+	margin: 1.2% 0;
+}	
+.chat .preview .preview-inner .less{
+	height: 40%;
+    display: flex;
+    overflow-x: scroll;
+    padding: 30px 0 10px 0;
+
+
+}
+.chat .preview .preview-inner .less::-webkit
+
+.chat .preview .preview-inner .less .item{
+	height: 100%;
+	min-width: 100px;
+	margin: 0 12px;
+    border-radius: 30px;
+    position: relative;
+
+}
+.chat .preview .preview-inner .less .item::after{
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.3);
+	height: 120%;
+	width: 120%;
+	border-radius: 30px;
+
+}
+.chat .preview .preview-inner .less .item h4{
+	position: absolute;
+	
+	
+}
+.chat .preview .preview-inner .less .item img{
+	height: 100px;
+	width: 100px;
+	border-radius: 60%;
+	cursor: pointer;
+}
+.chat .conversation{
+	display: grid;
+	grid-template-columns: 15% 73% 10%;
+	grid-column-gap: 1%;
+	align-items: center; 
+	
+
+
+}
+.chat .conversation .username{
+	margin-bottom: 10px;
+}
+.chat h4{
+	font-size: 1.9rem;
+}
+.chat h5{
+	font-size: 1.2rem;
+}
+.chat .conversation .create-dat{
+	font-size: 1.5rem;
+}
+.chat .preview img, .conversation img{
+
+	height: 100px;
+	width: 100px;
+	border-radius: 60%;
+	margin: 13px;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+.uploaded-images{
+
+}
+.uploaded-images ul{
+    display: grid;
+    grid-template-columns: repeat(3,4fr);
+    grid-column-gap: 10px;
+    list-style: none;
+}
+.uploaded-images ul li img{
+    width: 100%;
+    height: 100px;
+}

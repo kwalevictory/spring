@@ -1,0 +1,21 @@
+.profile_details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0 10px;
+    list-style: none;
+}
+.profile_details li:nth-child(1){
+    display: flex;
+    align-items: center;
+}
+.profile_details li:nth-child(1) h4{
+    font-size: 19px;
+    margin-left: 10px;
+}
+.profile_details li:nth-child(2){
+    font-size: 13px;
+    border:1px solid #cccccc;
+    padding: 2px 8px;
+    line-height: 1.5;
+}

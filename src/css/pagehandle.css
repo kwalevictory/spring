@@ -1,0 +1,30 @@
+.profile-name{
+    display:flex;
+    align-items: center;
+    position: relative;
+}
+.profile-name .pro{
+    position: absolute;
+    right: 10px;
+    border:1px solid black;
+    padding: 2px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+.profile-name .pro span{
+    font-size: 12px;
+}
+.profile-name h3{
+    margin-left: 10px;
+    font-size: 20px;
+}
+.uploadicon {
+    display: flex;
+    
+    
+}
+.uploadicon span{
+    margin-right: 10px;
+    margin-top: 15px;
+}

@@ -1,0 +1,153 @@
+
+
+#a{
+	background-image:url(../images/good.jpg);height: 655px;width: 100%;background-size: cover;background-repeat: no-repeat;
+}
+.form{
+	width: 40%;
+	height: 600px;
+	background: linear-gradient(to right,#003300, #660033);
+	margin: 0 auto;
+}
+.btn{
+	display: grid;
+	width: 60%;
+	justify-content: center;
+	align-items: center;
+	grid-template-columns: 48% 48%;
+	grid-column-gap: 4%;
+	list-style: none;
+	margin: 0 auto;
+	padding-top: 15px;
+}
+.btn li{
+	text-align: center;
+	border: 2px solid #fff;
+	color: #fff;
+	height: 30px;
+	border-top-left-radius: 60px;
+	border-bottom-right-radius: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.btn li span{
+	text-decoration: none;
+	color: #fff;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	line-height: 1.7
+}
+.sicon{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 25px;
+}
+.sicon .social{
+	display: grid;
+	width: 30%;
+	list-style: none;
+	grid-template-columns: 30% 30% 30%;
+	grid-column-gap: 5%;
+	justify-content: center;
+	align-items: center;
+}
+.sicon .social li{
+	width: 30px;
+	height: 30px;
+	border-radius: 20%;
+	background: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form h3{
+	text-align: center;
+	color:blue;
+	font-size: 40px;
+	margin-top: 15px;
+}
+.form form{
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 60px;
+}
+.form form .form-group{
+	width: 100%;
+	margin: 15px 0
+}
+
+.form form .form-group input{
+	width: 96%;
+	padding: 7px 2%;
+	font-size: 14px;
+	outline-color: green;
+}
+.form form .reset{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 60% 20%;
+	grid-column-gap: 20%;
+}
+.form form .reset a{
+	color: blue;
+	text-decoration: none;
+	font-size: 18px;
+}
+.form form .reset a:last-child{
+	text-align: right;
+}
+.form form .btn-group{
+	width: 30%;
+	margin: 20px auto;
+}
+.form form button{
+	text-align: center;
+	width: 100%;
+	color: #fff;
+	font-size: 16px;
+	padding: 7px 0;
+	background: transparent;
+	border: 2px solid #fff;
+	border-radius: 20px;
+
+}
+.form form .btn-register{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 30% 10%;
+	grid-column-gap: 60%;
+}
+.form form .btn-register button{
+	border-radius: 0;
+}
+.form form .btn-register a{
+	color: blue;
+	font-size: 16px;
+	text-decoration: none
+}
+#register{
+	display: none;
+}
+.content{
+	display: grid;
+	justify-content: center;
+	width: 100%;
+}
+@media(max-width: 767px){
+	#a{
+		background-image: none;
+	}
+	.form{
+		width:100%;
+		height: 100vh;
+	}
+	.btn{
+		padding-top: 40px;
+	}
+}

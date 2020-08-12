@@ -1,0 +1,109 @@
+.timeline-inner{
+	padding: 10px 0;
+}
+.timeline-wrap{
+	width: 95%;
+	margin: 0 auto;
+}
+.timeline .timeline-head{
+    display: grid;
+    grid-auto-flow: column;
+}
+.timeline .timeline-head .timeline-img img{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	border:1px solid #f2f2f2;
+}
+.timeline .timeline-head .timeline-tag{
+	margin-left: 15px;
+	font-size: 1rem;
+}
+.timeline .timeline-head h3{
+	display: inline-block;
+	margin-top: 10px;
+	font-size: 17px;
+}
+.timeline .timeline-head time{
+	display: block;
+}
+.timeline-body .timeline-images{
+	width: 100%;
+	height: 277px;
+	margin: 15px 0;
+}
+.timeline-body .timeline-images img{
+	width: 100%;
+	height: 100%;
+}
+.timeline-body .timeline-images .img-one{
+	width: 100%;
+	height: 100%;
+}
+.timeline-body .timeline-images .img-two{
+	display: grid;
+	grid-template-columns: 49% 49%;
+	grid-column-gap: 2%;
+	width: 100%;
+	height: 100%;
+}
+.timeline-body .timeline-images .img-three-inner{
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-rows: 49% 49%;
+	grid-row-gap: 2%;
+	position: relative;
+}
+.timeline-body .timeline-images .img-three-inner:after{
+	height: 49%;
+	width: 100%;
+	position: absolute;
+	content: "";
+	left: 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.5);
+}
+.timeline-body .timeline-images .img-three-inner span{
+	position: absolute;
+	right: 50%;
+    transform: translateY(-25%);
+    bottom: 20%;
+	font-size: 20px;
+	z-index: 2;
+	color: #fff;
+
+}
+.timeline-body .timeline-text p{
+	font-size: 1rem;
+	text-align: left;
+}
+.timeline-footer{
+	margin-top: 15px;
+}
+.timeline-footer p span i{
+    margin-right: 8px;
+}
+.timeline-footer ul{
+	display: grid;
+	grid-template-columns: 45% 45%;
+	grid-column-gap: 10%;
+	list-style: none;
+	justify-content: center;
+	align-items: center;
+	padding-top: 15px;
+}
+.timeline-footer ul li{
+	text-align: center;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	background: #dadada;
+	padding: 15px 30px;
+	font-size:1rem;
+	border-radius: 60px;
+}
+.timeline-footer ul li span i{
+    font-size: 22px;
+    margin-right: 7px;
+}

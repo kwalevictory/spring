@@ -1,0 +1,139 @@
+.fr{
+	width: 70%;
+	height: 500px;
+	background: white;
+	border-radius: 40px;
+	margin: 0 auto;
+}
+.fr p{
+	text-align: center;
+	font-size: 30px;
+
+
+}
+.name{
+	position: relative;
+}
+h6{
+    font-size: 38px; 
+}
+.name h2 span{
+	position: absolute;
+	right: 2px;
+}
+h3{
+	font-size: 30px;
+}
+h4{
+	font-size: 30px;
+}
+h5{
+	font-size: 30px;
+}
+ h2{
+ 	margin: 12px 0;
+ 	padding: 5px;
+ 	text-align: left;
+ 	font-size: 32px;
+}
+.img >img,
+.img1 > img{
+	width: 200px;
+	height: 200px;
+	border-radius: 60%;
+	cursor: pointer;
+}
+ 
+.img{
+	position: relative;
+	text-align: center;
+	height: 100px;
+	width: 100px;
+	border-radius: 60%;
+	cursor: pointer;
+
+}
+.img1 {
+	display: grid;
+	grid-auto-flow: column;
+	grid-column-gap: 16px;
+	grid-auto-columns: 1fr 11fr;
+	align-items: center;
+	margin-top: 140px
+
+}
+.img1 img{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.button button:first-child{
+	background: blue;
+	cursor: pointer;
+	outline: 0;
+	font-size: 60px;
+	border-radius: 15px;
+
+
+}
+.button button:last-child{
+	cursor: pointer;
+	outline: 0;
+	font-size: 60px;
+	padding-right: 20px;
+	padding-left: 20px;
+	margin-left: 40px;
+	border-radius: 15px;
+}
+.img2 {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr 11fr;
+	align-items: center;
+}
+.img2 img {
+	width: 20px; 
+	height: 20px;
+	border-radius: 50%;
+}
+.button1 button:first-child{
+	background: blue;
+	cursor: pointer;
+	outline: 0;
+	font-size: 60px;
+	border-radius: 15px;
+	
+}
+.button1 button:last-child{
+	cursor: pointer;		
+	outline: 0;
+	font-size: 60px;
+	padding-right: 20px;
+	padding-left: 20px;
+	margin-left: 40px;
+	border-radius: 15px;
+}
+.button1{
+	margin-top: 42px;
+}
+.button{
+	margin-top: 42px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

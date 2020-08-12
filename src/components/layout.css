@@ -1,0 +1,13 @@
+.wrapper,.post-wrapper{
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 10vh;
+}
+@media(max-width:767px){
+    .wrapper{
+        width: 95%;
+    }
+    .post-wrapper{
+        width: 100%;
+    }
+}
