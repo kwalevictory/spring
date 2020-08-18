@@ -1,28 +1,30 @@
 import React, { Component } from "react"
 import "../css/friendrequest.css"
 import Layout from "../components/layout"
+import good from "../images/good.jpg"
+
 
 
 class FriendRequest extends Component {
     render(){
         return(
             <Layout>
-                <div class="fr">
+                <div className="fr">
 		<p>friend request 4</p>
-		<div class="name">
+		<div className="name">
 			<h2>john favour <span>1d</span></h2>
 			
 		</div>
-		<div class="img">
-			<img src="uwa.jpg" alt=""/>
+		<div className="img">
+			<img src={good} alt=""/>
 			
 		</div>
-		<div class="img1">
-			<img src="good.jpg" alt=""/>
+		<div className="img1">
+			<img src={good} alt=""/>
 			<h4>40 Mutual Firend</h4>
 			
 		</div>
-		<div class="button">
+		<div className="button">
 			<button>Confirm</button>
 			<button >Delete..</button>
 			
@@ -30,19 +32,19 @@ class FriendRequest extends Component {
 
          <h6>people you know</h6>
 
-		<div class="nav">
+		<div className="nav">
 			<h3>philip happy</h3>
 
 		</div>
-		<div class="img">
-			<img src="felix.jpg" alt=""/>
+		<div className="img">
+			<img src={good} alt=""/>
 			
 		</div>
-		<div class="img1">
-			<img src="firest.jpg" alt=""/>
+		<div className="img1">
+			<img src={good} alt=""/>
 			<h5>1 Mutual Friend</h5>
 		</div>
-		<div class="button1">
+		<div className="button1">
 			<button>Add fri....</button>
 			<button>Remove</button>
 			

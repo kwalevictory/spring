@@ -1,0 +1,54 @@
+.comment-post{
+    
+    display: flex;
+    justify-self: start;
+}
+.comment-images{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    margin: 10px;
+;
+
+
+
+}
+.comment-post .comment-name{
+    position: relative;
+    background-color: wheat;
+    border-radius: 20px;
+}
+.comment-user{
+    display: flex;
+    align-items: center;
+
+}
+.view-previous{
+    font-size: 7px
+}
+.reply-user {
+    display: flex;
+}
+.images-reply {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+}
+.first-reply{
+    display: flex;
+    
+}
+.first-reply .comment-replies{
+    position: relative;
+    background-color: wheat;
+    border-radius: 20px;
+
+
+}
+.image-reply{
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+

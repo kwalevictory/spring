@@ -1,0 +1,47 @@
+.createpost .personal-profile{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+.createpost .personal-profile + .textarea textarea{
+    width: 94%;
+    height: 90px;
+    outline: 0;
+    border: 1px solid #cccccc;
+    padding: 10px 3%;
+}
+.createpost .personal-profile + .textarea textarea:focus{
+    border-color: rgba(50, 9, 163, 0.486);
+}
+.createpost .personal-profile .personal{
+    margin-left: 10px;
+}
+.createpost .personal-profile .personal i{
+    margin-left: 10px;
+
+}
+.createpost .personal-profile .personal-privacy{
+    position: absolute;
+    right: 0;
+}
+.createpost .personal-profile .personal-privacy span{
+    font-size: 13px;
+    border: 1px solid #cccccc;
+    padding: 1px 4px;
+    border-radius: 4px;
+}
+.createpost button{
+    width: 100%;
+    padding:8px 0;
+    color:#fff;
+    background: rgba(50, 9, 163, 0.486);
+    border:none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: 0;
+}
+.createpost button:last-child{
+    margin-top: 12px;
+    background: rgb(10, 197, 157);
+}

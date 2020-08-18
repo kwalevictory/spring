@@ -7,7 +7,7 @@
 }
 .fr p{
 	text-align: center;
-	font-size: 30px;
+	
 
 
 }
@@ -15,20 +15,20 @@
 	position: relative;
 }
 h6{
-    font-size: 38px; 
+     
 }
 .name h2 span{
 	position: absolute;
 	right: 2px;
 }
 h3{
-	font-size: 30px;
+
 }
 h4{
-	font-size: 30px;
+	
 }
 h5{
-	font-size: 30px;
+	
 }
  h2{
  	margin: 12px 0;
@@ -38,8 +38,8 @@ h5{
 }
 .img >img,
 .img1 > img{
-	width: 200px;
-	height: 200px;
+	width: 90px;
+	height: 90px;
 	border-radius: 60%;
 	cursor: pointer;
 }
@@ -47,8 +47,8 @@ h5{
 .img{
 	position: relative;
 	text-align: center;
-	height: 100px;
-	width: 100px;
+	height: 90px;
+	width: 90px;
 	border-radius: 60%;
 	cursor: pointer;
 
@@ -56,35 +56,37 @@ h5{
 .img1 {
 	display: grid;
 	grid-auto-flow: column;
-	grid-column-gap: 16px;
+	/*grid-column-gap: 16px;*/
 	grid-auto-columns: 1fr 11fr;
 	align-items: center;
-	margin-top: 140px
+	margin-top: 15px;
 
 }
 .img1 img{
-	width: 100px;
-	height: 100px;
+	width: 40px;
+	height: 40px;
 	border-radius: 50%;
 	cursor: pointer;
 }
 .button button:first-child{
+	position: relative;
 	background: blue;
 	cursor: pointer;
 	outline: 0;
-	font-size: 60px;
-	border-radius: 15px;
+	font-size: 30px;
+
 
 
 }
 .button button:last-child{
+	position: absolute;
 	cursor: pointer;
 	outline: 0;
-	font-size: 60px;
+	font-size: 30px;
 	padding-right: 20px;
-	padding-left: 20px;
-	margin-left: 40px;
-	border-radius: 15px;
+	/*padding-left: 20px;*/
+	margin-left: 24px;
+
 }
 .img2 {
 	display: grid;
@@ -98,21 +100,23 @@ h5{
 	border-radius: 50%;
 }
 .button1 button:first-child{
+	position: relative;
 	background: blue;
 	cursor: pointer;
 	outline: 0;
-	font-size: 60px;
-	border-radius: 15px;
+	font-size: 30px;
+
 	
 }
 .button1 button:last-child{
+	position: absolute;
 	cursor: pointer;		
 	outline: 0;
-	font-size: 60px;
-	padding-right: 20px;
-	padding-left: 20px;
-	margin-left: 40px;
-	border-radius: 15px;
+	font-size: 30px;
+	/*padding-right: 20px;
+	padding-left: 20px;*/
+	margin-left: 24px;
+	
 }
 .button1{
 	margin-top: 42px;

@@ -9,13 +9,13 @@ body{
 }
 .friends> p{
 	text-align: center;
-	border-bottom:4px solid #dadada;
+	border-bottom:2px solid #dadada;
 
 }
 .friend > img{
-	height: 110px;
-	width: 110px; 
-	margin: 14px;
+	height: 41px;
+	width: 41px; 
+	margin: 10px;
 	cursor: pointer;
 
 }
@@ -24,7 +24,7 @@ body{
 	display: flex;
 	align-items: center;
 	border-bottom:1px solid #dadada;
-	font-size:200%;
+	font-size:14px;
 	margin: 0 auto;
 }
 

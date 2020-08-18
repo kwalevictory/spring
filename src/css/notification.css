@@ -1,32 +1,30 @@
-*{
-	margin: 0;
-
+* {
+	padding: 0;
 }
-
+h2, p {
+  margin: 10px;
+}
 .container {
 	display: flex;
     border-bottom: 1px solid #dadada;
     position: relative;
     text-align: center;
-    padding: 20px 0; 
+    padding: 20px 0;
 }
-.container .image-box {
-	width: 90px;
-	height: 90px;
+.image-box {
+	width: 50px;
+	height: 50px;
 	border-radius: 50%;
-    margin-right: 16px;
-    position: relative;
+  margin-right: 16px;
 }
-.container p{
-	font-size: 35px;
-	position: absolute;
+.comment-name{
 }
-.contanier h2{
-	font-size: 34px;
+h2{
+	font-size: 13px;
 }
 .date {
 	position: absolute;
 	bottom: 10px;
-	font-size: 20px;
+	font-size: 0.9rem;
 	right: 10px;
 }

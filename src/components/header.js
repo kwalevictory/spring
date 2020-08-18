@@ -1,8 +1,16 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./header.css"
+import Context from "./context";
+import {withRouter} from "react-router-dom"
 
-const Header = ()=>{
+const Header = ({history})=>{
+    const {getImages} = useContext(Context)
+    const navigate = (file)=>{
+        getImages(file)
+        history.push('/newpost')
+    }
     return(
+        <>
         <div className="top">
             <div className="container">
                 <ul className="top-inner">
@@ -17,10 +25,12 @@ const Header = ()=>{
                         </form>
                     </li>
                     <li>Spring</li>
-                    <li><i className="fa fa-camera" aria-hidden="true"></i></li>
+                    <li aria-hidden="true"><i className="fa fa-camera" aria-hidden="true"></i><label htmlFor="file-upload">camera</label></li>
                 </ul>
+                    <input onChange={(file)=>navigate(file)} style={{display:'none'}} type="file" multiple={true} id="file-upload" />
             </div>
         </div>
+        </>
     )
 }
-export default Header;
+export default withRouter(Header);
