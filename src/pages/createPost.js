@@ -6,6 +6,7 @@ import UploadedImages from "../components/uploaded_images";
 import Context from "../components/context";
 import {withRouter} from "react-router-dom"
 import Privacy from "../components/privacy";
+import firebase from "../database/users"
 
 const CreatePost = ({history})=>{
     const {images} = useContext(Context)
@@ -18,7 +19,16 @@ const CreatePost = ({history})=>{
     })
     const onSubmit =()=>{
         seData({...data, post:''});
-        history.push('/post')
+        firebase.firestore().collection('posts').add({
+            post:data.post,
+            uid:data.uid,
+            privacyText:data.privacyText
+        })
+        .then(rep=>{
+            console.log(rep)
+            history.push('/post')
+        })
+        .catch(err=>{console.log(err)})
     }
 
     const onClose = (privacy)=>{

@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-
+/src/database
 # production
 /build
 

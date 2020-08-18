@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom'
 import "../css/login.css"
-import {users} from "../database/users"
+//import {users} from "../database/users"
 
 class Login extends Component{
     constructor(props){
@@ -27,11 +27,11 @@ class Login extends Component{
     }
      onLogin = (event)=>{
          event.preventDefault();
-         const {username,password} = this.state
-        if(username === users[0].username && password === users[0].password)
-         this.props.history.push('/profile')
-        else
-        alert('Invalid username and password')
+        //  const {username,password} = this.state
+        // if(username === users[0].username && password === users[0].password)
+        //  this.props.history.push('/profile')
+        // else
+        // alert('Invalid username and password')
     }
  render(){
     return (
