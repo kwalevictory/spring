@@ -19,6 +19,8 @@ import Search from "../pages/search";
 import CreatePost from "../pages/createPost";
 import Comment from "../pages/comment";
 import Context from "./context";
+import Newsupdate from "../pages/newsupdate";
+import LiveVideo from "../pages/video";
 
 const Navigation = ()=>{
   const [images,setImages]= useState([])
@@ -50,6 +52,12 @@ const Navigation = ()=>{
             <Route path="/users">
               <Users />
             </Route> */}
+            <Route path="/live">
+                <LiveVideo/>
+            </Route>
+            <Route path="/newsupdate">
+              <Newsupdate/>
+            </Route>
             <Route path="/comment">
               <Comment/>
             </Route>

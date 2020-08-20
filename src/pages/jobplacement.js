@@ -21,6 +21,7 @@ class Jobplacement extends Component {
             <label for="">Job Description</label>
             <textarea name="" id="" cols="30" rows="10"></textarea>
          <label for="">12 hours ago</label>
+         <button className="besty">post</button>
 
 
             

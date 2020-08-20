@@ -11,7 +11,7 @@ class Notification extends Component {
         return(
             <Layout>
 				<div className="container">
-		            <img classN="image-box" src={good} alt=""/>
+		            <img className="image-boxs" src={good} alt=""/>
 		            <div className="comment-name">
 			          <h2>ubah vivian</h2>
 			          <p>commented on your photo</p>

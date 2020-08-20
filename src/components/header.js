@@ -10,27 +10,13 @@ const Header = ({history})=>{
         history.push('/newpost')
     }
     return(
-        <>
-        <div className="top">
-            <div className="container">
-                <ul className="top-inner">
-                    <li><i className="fa fa-camera" aria-hidden="true"></i></li>
-
-                    <li>Spring</li>
-                    <li>
-                        <form action="">
-                            <input type="text"/>
-                            <button><i className="fa fa-search " aria-hidden="true"></i></button>
-
-                        </form>
-                    </li>
-                    <li>Spring</li>
-                    <li aria-hidden="true"><i className="fa fa-camera" aria-hidden="true"></i><label htmlFor="file-upload">camera</label></li>
-                </ul>
-                    <input onChange={(file)=>navigate(file)} style={{display:'none'}} type="file" multiple={true} id="file-upload" />
-            </div>
-        </div>
-        </>
+        <div className="icon-bars">
+            <i className="fa fa-home"></i>
+             <i className="fa fa-home"></i>
+            </div>    
+        
+    
+        
     )
 }
 export default withRouter(Header);

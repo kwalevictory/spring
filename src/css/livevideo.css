@@ -2,17 +2,31 @@
     width:100%;
     height: 100vh;
     position: relative;
+    overflow: hidden;
 }
 .livevideo video{
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     position: absolute;
     z-index: -1;
+    top: 0;
+    left: 0;
 }
 .livevideo .live-button{
     position: absolute;
     bottom: 13px;
     left: 2%;
     width: 96%;
+}
+.livevideo .live-button button{
+    width: 100%;
+    padding: 8px 0;
+    outline: 0;
+    border: none;
+    border-radius: 4px;
+    background: rgba(50, 9, 163, 0.486);
+    margin-top: 10px;
+    color: #ffffff;
 }
 .livevideo .live-button label,
 .livevideo .live-button p{
@@ -28,7 +42,9 @@
 .livevideo .live-button label input{
     display: block;
     width:96%;
-    padding: 6px 4px;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 6px 2%;
     outline: none;
 }
 .livevideo .live-icons{

@@ -1,4 +1,4 @@
-import fire from "firebase";
+import * as fire from "firebase/app";
 const firebaseConfig = {
     apiKey: "AIzaSyCLS7UmxOyZ8gCZPlvbQbBw5hAQVmEa0ew",
     authDomain: "spring-833d5.firebaseapp.com",

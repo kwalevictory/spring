@@ -48,3 +48,15 @@ input{
 	
 
 }
+.placement .besty{
+    width: 100%;
+    padding:8px 0;
+    color:#fff;
+    background: rgba(50, 9, 163, 0.486);
+    border:none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: 0;
+}
+
+

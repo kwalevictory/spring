@@ -1,6 +1,6 @@
 import React from "react";
 import {PostLayout as Layout} from "../components/layout";
-import {withRouter} from "react-router-dom"
+import {withRouter, Link} from "react-router-dom"
 import ProfileIcon from "../components/profileicon";
 import "../css/singlepost.css"
 import Status from "../components/status";
@@ -21,7 +21,7 @@ const Post = ({location})=>{
                 <div className="post-icons">
                     <ul>
                         <li><span className="fa fa-user-o"></span>Advertisement</li>
-                        <li><span className="fa fa-video-camera"></span> Live Video</li>
+                        <li><Link to="/live"><span className="fa fa-video-camera"></span> Live Video</Link></li>
                         <li><span className="fa-video-camera"></span>video from users</li>
                     </ul>
                 </div>

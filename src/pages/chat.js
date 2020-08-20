@@ -46,27 +46,29 @@ class Chat extends Component {
                     <img className="online-image" src={good} alt=""/>
                     <span>lewis philip</span>
                     <p>online</p>
-
                 </div>
-                <div className="preview-message">
-                    <p>preview messages</p>
-
-            </div>
-            <div className="chat">
-                <div className="date-center">
-                    <p>fri 09:23</p>
-                </div>
+               <div className="chat">
+                   <div className="date-center">
+                      <p>fri 09:23</p>
+                  </div>
                 <div className="owner-chat">
-                    <p>which one bro </p>
-
-                </div>
-                <div className="reciever-chat">
+                      <p>which one bro </p>
+                  </div>
+                  <div className="reciever-chat">
                     <img className="chat-images" src={good} alt=""/>
-                    <p>good bro</p>
+                     <p>good bro</p>
+
+                 </div>
 
                 </div>
+                
+        
+    
+            
 
-            </div>
+            
+            
+
             
             </Layout>
         )

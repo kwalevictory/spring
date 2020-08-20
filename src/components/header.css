@@ -1,5 +1,5 @@
 
-.header .icon-bar {
+.header .icon-bars {
 	width: 100%;
     background-color: #cacaca;
 	overflow: auto;
@@ -9,7 +9,7 @@
     min-height: 50px;
 
 }
-.header .icon-bar a {
+.icon-bars a {
 	float: left;
 	width: 20%;
 	text-align: center;
