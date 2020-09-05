@@ -1,0 +1,39 @@
+
+.block-user{
+    margin-top: 317px;
+    height: 147px;
+    overflow: hidden;
+    background: aliceblue;
+}
+.block-line {
+    text-align: center;
+    margin-top: 12px;
+}
+.block-profil button{
+    margin-left: 12px;
+    margin-top: 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: 0;
+
+
+}
+.suspended-user button{
+    margin-left: 12px;
+    margin-top: 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: 0;
+
+}
+.complain-report button{
+    margin-left: 12px;
+    border: none;
+    margin-top: 12px;
+    background: none;
+    cursor: pointer;
+    outline: 0;
+
+}

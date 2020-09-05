@@ -1,15 +1,17 @@
 
 .preview-chat {
     display: flex;
-    padding: 20px;
-    border-bottom: 1px solid #dadada;
+    border-bottom: 5px solid #dadada;
+    margin-top: -5px;
+    
+    
 
 
 }
 .preview-chat .preview-images {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+    border-radius: 40px;
     margin-left: 10px;
     margin-right: 10px;
     position: relative;
@@ -30,67 +32,150 @@
     justify-content: center;
     margin: 0 auto;
     border-bottom:1px solid #dadada;
-    padding-bottom: 12px;
-
-
-
+    position: relative;
 
 }
 .online-image{
     width: 40px;
     height: 40px;
     border-radius: 50px;
+    padding: 5px;
 }
 .online li{
     position: absolute;
     left: 12px;
 }
 .online span{
-    position: relative;
+    /*position: relative;*/
     left: 12px;
 }
 .online p{
-    right: 23px;
+    right: 7px;
     position: absolute;
 
+}
+.duration-time{
+    text-align: center;
+    margin-top: 12px;
+    font-size: 12px;
 }
 .preview-message {
     text-align: center;
     border-bottom:1px solid #dadada;
 
 }
-.chat{
-    position: relative;
+.send-message {
+    margin-left: 12px;
+    margin: 10px;
+    border-radius: 10px;
+    background: whitesmoke;
+    padding: 9px;
 }
-.date-center {
-    margin-top: 1rem;
+
+.preview-messages  button{
     text-align: center;
+    position: relative;
+    left: 120px;
+    margin: 12px;
+    color: blueviolet;
+    
 }
-.owner-chat {
-    position: absolute;
-    right: 1rem;
-    top: 2rem;
-    padding: 0.5rem;
-    border-radius: 3rem;
-    box-shadow: 1rem 1rem 2rem rgba(0,0,0,0.609);
+.sends-message{
+    margin-left: 12px;
+    margin: 10px;
+    border-radius: 10px;
+    background: whitesmoke;
+    padding: 9px;
 }
-.chat-images{
+.preview-messages  p{
+    position: relative;
+    text-align: center;
+    font-size: 12px;   
+}
+
+
+.chat-message> img{
     width: 40px;
     height: 40px;
-    border-radius: 50px;
+    border-radius: 20px;
 }
-.reciever-chat{
+.chat-message{
     display: flex;
-    align-items: center;
+    position: relative;
+}
+.recieve-message{
     position: absolute;
-    top: 6rem;
+    right: 21px;
+    border-radius: 12px;
+    background: paleturquoise;
+    padding: 7px;
+    
 }
-.reciever-chat p{
-    margin-left: 5rem;
-    padding: 0.5rem;
-    box-shadow: 0rem 1rem 2rem rgba(0,0,0,0.609);
-    border-radius: 3rem;
+.chat-messagess> img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
 }
-.chat-history{
+.chat-messagess{
+    display: flex;
+    position: relative;
+    bottom: 0;
+    padding: 20px 0px;
+}
+.chat-messagess p{
+    font-size: 12px;
+}
+.personal-messages{
+        font-size: 12px;
+        right: 21px;
+        margin-top: -18px;
+        border-radius: 12px;
+        background: paleturquoise;
+        padding: 7px;
+        position: absolute;
+
+
+}
+.time-duration {
     text-align: center;
+    margin-top: 12px;
+    font-size: 12px;
 }
+.previous-messages {
+    text-align: center;
+    border-bottom:1px solid #dadada;
+}
+.previous-messages p{
+    margin: 12px;
+}
+.list-messages> img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 5px;
+
+}
+.list-messages{
+    display: flex;
+    margin-top: 12px;
+
+}
+.lists-user h1{
+    margin-left: 5px;
+    font-size: 21px;
+    
+}
+.lists-user p{
+    margin-left: 6px;
+
+}
+
+
+ 
+
+
+
+
+
+
+

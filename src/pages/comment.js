@@ -3,57 +3,69 @@ import "../css/comment.css"
 import Layout from "../components/layout"
 import good from "../images/good.jpg"
 
+
+
 class Comment extends Component {
     render(){
         return(
             <Layout>
                 <div className="comment-post">
-                    <img className="comment-images" src={good} alt=""/>
+                    <img src={good} alt=""/>
                     <div className="comment-name">
-                        <h3>okonye victory</h3>
-                        <p> nice one bro sir best lockbbn</p>
+                        <h1>Bianca Marshall</h1>
+                        <div className="comments">
+                            <p>why is he shackled to the bed? why was he shot? Can we get the very best of physios for the man?</p>
+                        </div>
                     </div>
                 </div>
-                <div className="comment-user">
-                    <time className="time">7 mins</time>
-                    <p className="like-comment">like</p>
-                    <p className="reple-comment">reply</p>
-                    <p>2</p>
+                <div className="reply">
+                    <time>3 mins</time>
+                    <p>Like</p>
+                    <button>Reply</button>
+                    
                 </div>
-                <div className="view-previous">
-                    <h1>view previous reply</h1>
+                <div className="previous-replies">
+                    <p>View previous 4 replies</p>
 
                 </div>
-                <div className="reply-user">
-                    <img className="images-reply" src={good} alt=""/>
-                    <h2>okonye victory</h2>
-                    <p className="like-reply">john king...</p>
+                <div className="reply-many">
+                    <img src={good} alt=""/>
+                    <h4>Bianca Marshall</h4>
+                    <p>john...</p>
                 </div>
                 <div className="comment-post">
-                <img className="comment-images" src={good} alt=""/>
-                <div className="comment-name">
-                <h3>okonye victory</h3>
-                <p> nice one bro sir best lockbbn</p>
-            </div>
-            </div>
-                <div className="comment-user">
-                   <time className="time">7 mins</time>
-                   <p className="like-comment">like</p>
-                   <p className="reple-comment">reply</p>
-                  <p>2</p>
-            </div>
-            <div className="first-reply">
-                <img className="image-reply" src={good} alt=""/>
-                <div className="comment-replies">
-                <h4>timothy joy</h4>
-                <p>okonye victory  how your day</p>
+                    <img src={good} alt=""/>
+                    <div className="comment-name">
+                        <h1>Bianca Marshall</h1>
+                        <div className="comments">
+                            <p>why is he shackled to the bed? why was he shot? Can we get the very best of physios for the man?</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="reply">
+                    <time>2 hrs</time>
+                    <p>Like</p>
+                    <button>Reply</button>
+                    
+
+                </div>
+                <div className="first-replies">
+                    <img src={good} alt=""/>
+                    <div className="first">
+                        <h5>John Philip</h5>
+                        <span>Bianca Marshall</span><p>hater for your information he is not playing</p>
+
+                    </div>
+
+                </div>
+                <div className="replies-friend">
+                    <time>1 hrs</time>
+                    <p>Like</p>
+                    <button>Reply</button>
+                    
+
                 </div>
                 
-
-            </div>
-
-
-
             </Layout>
         )
     }

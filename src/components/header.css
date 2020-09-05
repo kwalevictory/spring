@@ -1,9 +1,9 @@
 
 .header .icon-bars {
 	width: 100%;
-    background-color: #cacaca;
+	background-color: #02d480;
 	overflow: auto;
-	border-bottom: 9px solid #dadada;
+	border-bottom: 1px solid #dadada;
     position: fixed;
     z-index: 100;
     min-height: 50px;

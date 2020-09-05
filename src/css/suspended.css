@@ -1,0 +1,47 @@
+
+.user-suspended{
+    font-size: 8px;
+    text-align: center;
+}
+.suspended {
+    margin-left: 12px;
+    margin-top: 12px;
+    font-size: 17px;
+}
+.suspend {
+    margin-left: 12px;
+    position: relative;
+    margin-top: 9px;
+
+}
+.suspended-items{
+    margin-left: 46px;
+    font-size: 19px;
+    margin-top: 23px;
+}
+.suspended-details{
+    margin-left: 15px;
+    margin-top: 28px;
+}
+.total-suspend button{
+    width: 100%;
+    padding: 8px 0px;
+    color:#fff;
+    background: rgba(50, 9, 163, 0.486);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    outline: 0;
+}
+.total-suspend button:last-child{
+    margin-top: 12px;
+    background: rgb(10, 197, 157);
+
+
+}
+.total-suspend{
+    margin-top: 31px;
+
+}
+
+

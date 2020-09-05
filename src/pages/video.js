@@ -20,8 +20,11 @@ const LiveVideo = ({history})=>{
             myVideo.play()
         })
     },[])
-    const endVideo = ()=>{
-        // history.push('/post')
+    const goLive = ()=>{
+        myVideo.srcObject.getTracks().forEach(track=>{
+            track.stop()
+        })
+        history.push('/livevideo')
     }
     return(
             <div className="livevideo">
@@ -38,7 +41,7 @@ const LiveVideo = ({history})=>{
                         Description:
                         <input/>
                     </label>
-                    <button onClick={endVideo}>Go Live</button>
+                    <button onClick={goLive}>Go Live</button>
                 </div>
             </div>
     )

@@ -21,6 +21,13 @@ import Comment from "../pages/comment";
 import Context from "./context";
 import Newsupdate from "../pages/newsupdate";
 import LiveVideo from "../pages/video";
+import Video from "../pages/livevideo"
+import Watch from "../pages/watch";
+import LiveVideoFinish from "../pages/liveVideoFinish";
+import Block from "../pages/block";
+import Suspended from "../pages/suspended";
+import Blocknew from "../pages/blocknew";
+import Report from "../pages/report";
 
 const Navigation = ()=>{
   const [images,setImages]= useState([])
@@ -52,8 +59,29 @@ const Navigation = ()=>{
             <Route path="/users">
               <Users />
             </Route> */}
+            <Route path="/report">
+              <Report/>
+            </Route>
+            <Route path="/suspended">
+              <Suspended/>
+            </Route>
+            <Route path="/block">
+              <Block/>
+            </Route>
+            <Route path="/blocknew">
+              <Blocknew/>
+            </Route>
+            <Route path="/livevideofinish">
+                <LiveVideoFinish/>
+            </Route>
+            <Route path="/livevideo">
+                <Video/>
+            </Route>
             <Route path="/live">
                 <LiveVideo/>
+            </Route>
+            <Route path="/watch">
+                <Watch/>
             </Route>
             <Route path="/newsupdate">
               <Newsupdate/>

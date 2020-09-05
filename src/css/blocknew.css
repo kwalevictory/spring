@@ -1,0 +1,38 @@
+
+.block-new {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 18px;
+}
+.blockss{
+    margin-left: 12px;
+    margin-top: 12px;
+    font-size: 17px;
+}
+.newblockss{
+    margin-left: 44px;
+    margin-top: 7px;
+    font-size: 17px;
+    position: relative;
+
+}
+.block-two button{
+    width: 96%;
+    padding: 8px 0px;
+    color: #fff;
+    background: rgba(50, 9, 163, 0.486);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    outline: 0;
+    margin-top: 20px;
+}
+.block-two button:last-child{
+    margin-top: 12px;
+    background: rgb(10, 197, 157);
+}
+.block-two {
+    margin-top: 12px;
+}
+
+

@@ -7,6 +7,7 @@ class Search extends Component {
         return(
             <Layout>
         
+        
             </Layout>
         )
     }

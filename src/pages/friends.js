@@ -16,25 +16,30 @@ class Friends extends Component {
 					<div className="friend">
 							<img src={good} alt=""/>
 							<span>uba vivian</span>
+							<p className="online">online</p>
 
 							
 						</div>
 						<div className="friend">
 							<img src={good} alt=""/>
 							<span>john philip</span>
+							<p className="online">offline</p>
 						</div>
 						<div className="friend">
 							<img src={good} alt=""/>
 							<span>john philip</span>
+							<p className="online">online</p>
 						</div>
 						<div className="friend">
 							<img src={good} alt=""/>
 							<span>lucy gold</span>
+							<p className="online">online</p>
 							
 						</div>
 						<div className="friend">
 							<img src={good} alt=""/>
 							<span>joseph joy</span>
+							<p className="online">offline</p>
 							
 						</div>
 				</div>

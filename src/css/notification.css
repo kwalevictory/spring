@@ -1,30 +1,42 @@
-* {
-	padding: 0;
-}
-h2, p {
-  margin: 10px;
-}
-.container {
-	display: flex;
-    border-bottom: 1px solid #dadada;
-    position: relative;
-    text-align: center;
-    padding: 20px 0;
-}
-.image-boxs {
+.notification-alert> img{
 	width: 40px;
 	height: 40px;
-	border-radius: 30px;
-    margin-right: 16px;
+	border-radius: 20px;
+	margin-top: 7px;
+
 }
-.comment-name{
+.notification-alert {
+	display: flex;
+	border-bottom: 1px solid #dadada;
+	height: 90px;
+
+	
 }
-h2{
-	font-size: 13px;
-}
-.date {
+.notify h5 {
+	margin-left: 12px;
 	position: absolute;
-	bottom: 10px;
-	font-size: 0.9rem;
-	right: 10px;
+	margin-top: 4px;
+
+}
+.notify span {
+	position: relative;
+    margin-left: 109px;
+    
+}
+.notify p {
+	margin-left: 12px;
+}
+.notify-date p{
+	position: absolute;
+	margin-top: 3px;
+	right: 12px;
+
+}
+.notify-date {
+	align-content: center;
+    justify-content: center;
+	display: flex;
+	margin-top: 7px;
+
+	
 }

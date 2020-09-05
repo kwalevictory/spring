@@ -10,6 +10,7 @@ body{
 .friends> p{
 	text-align: center;
 	border-bottom:2px solid #dadada;
+	
 
 }
 .friend > img{
@@ -26,6 +27,12 @@ body{
 	border-bottom:1px solid #dadada;
 	font-size:14px;
 	margin: 0 auto;
+	position: relative;
+}
+.friend .online{
+	position: absolute;
+	right: 12px;
+	text-align: center;
 }
 
 

@@ -2,7 +2,35 @@ import React, { Component } from "react"
 import "../css/jobplacement.css"
 import Layout from "../components/layout";
 
+
 class Jobplacement extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            JobTitle:'',
+            JobLocation:'',
+            jobApplicationEmail:'',
+            jobdescription:''
+
+
+        };
+    }
+     handlerChange(event) {
+         this.setState({value:event.target.value})
+     }
+     
+
+    
+
+    
+
+
+
+      
+
+    
+
+    
     render(){
         return(
             <Layout>
@@ -19,9 +47,9 @@ class Jobplacement extends Component {
          <input type="text"/>
          <div className="textrea">
             <label for="">Job Description</label>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <textarea value={this.state.value} onChange={this.changeHandler} name="" id="" cols="30" rows="10"></textarea>
          <label for="">12 hours ago</label>
-         <button className="besty">post</button>
+         <button  className="besty">post</button>
 
 
             
@@ -35,4 +63,5 @@ class Jobplacement extends Component {
         )
     }
 }
+
 export default Jobplacement;
