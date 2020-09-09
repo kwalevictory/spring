@@ -21,9 +21,6 @@ const LiveVideo = ({history})=>{
         })
     },[])
     const goLive = ()=>{
-        myVideo.srcObject.getTracks().forEach(track=>{
-            track.stop()
-        })
         history.push('/livevideo')
     }
     return(

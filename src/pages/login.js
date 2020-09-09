@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom'
 import "../css/login.css"
+import firebase from "../database/users"
 //import {users} from "../database/users"
 
 class Login extends Component{
@@ -9,7 +10,8 @@ class Login extends Component{
         this.state ={
             username:'',
             password:'',
-            name:'',
+            firstname:'',
+            lastname:'',
             email:''
         }
     }
@@ -18,6 +20,7 @@ class Login extends Component{
      }
      showLogin = ()=>{
         document.getElementById('register').style.display = 'none';
+        document.getElementById('resetpassword').style.display = 'none';
         document.getElementById('login').style.display = 'block';
     }
 
@@ -27,11 +30,34 @@ class Login extends Component{
     }
      onLogin = (event)=>{
          event.preventDefault();
-        //  const {username,password} = this.state
-        // if(username === users[0].username && password === users[0].password)
-        //  this.props.history.push('/profile')
-        // else
-        // alert('Invalid username and password')
+         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+         .then(res=>{ 
+            this.props.history.push('/post')
+
+
+         })
+         .catch(error=>{
+             console.log(error)
+         })
+    }
+    signup= (e) =>{
+        e.preventDefault();
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .then(rep=>{
+            this.props.history.push('/profile')
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    }
+    forgetPassword=(e) =>{
+        firebase.auth().sendPasswordResetEmail(this.state.email)
+        .then(reset=>{
+            console.log(reset)
+        })
+        .catch(error=>{
+            console.log(error)
+        })
     }
  render(){
     return (
@@ -56,7 +82,7 @@ class Login extends Component{
                 <h3>Spring</h3>
                 <form id="login"  onSubmit={event=>this.onLogin(event)}>
                     <div className="form-group">
-                        <input type="text" name="username" onChange={this.changeHandler} placeholder="Username"/>
+                        <input type="text" name="email" onChange={this.changeHandler} placeholder="Email"/>
                     </div>
                     <div className="form-group">
                         <input type="password" name="password" onChange={this.changeHandler} placeholder="Password"/>
@@ -69,21 +95,21 @@ class Login extends Component{
                         <button type="submit">Login</button>
                     </div>
                 </form>
-                <form id="register">
+                <form onSubmit={this.signup} id="register">
                     <div className="form-group">
-                        <input type="text" name="" placeholder="Firstname"/>
+                        <input type="text" onChange={this.changeHandler} name="firstname" placeholder="Firstname"/>
                     </div>
                     <div className="form-group">
-                        <input type="text" name="" placeholder="Lastname"/>
+                        <input type="text" onChange={this.changeHandler} name="lastname" placeholder="Lastname"/>
                     </div>
                     <div className="form-group">
-                        <input type="text" name="" placeholder="Email"/>
+                        <input type="text" onChange={this.changeHandler} name="email" placeholder="Email"/>
                     </div>
                     <div className="form-group">
-                        <input type="text" name="" placeholder="Username"/>
+                        <input type="text"  onChange={this.changeHandler} name="username" placeholder="Username"/>
                     </div>
                     <div className="form-group">
-                        <input type="password" name="" placeholder="Password"/>
+                        <input type="password" onChange={this.changeHandler} name="password" placeholder="Password"/>
                     </div>
 
                     <div className="btn-register">
@@ -91,7 +117,14 @@ class Login extends Component{
                         <a href="https://wwww.google.com">Reset</a>
                     </div>
                 </form>
-
+                <form id="resetpassword">
+                    <div className="form-group">
+                        <input type="text" onChange={this.changeHandler} name="email" placeholder="Email"/>
+                    </div>
+                    <div className="btn-group">
+                        <button type="submit">Reset Password</button>
+                    </div>
+                </form>
             </div>
         </div>
 )

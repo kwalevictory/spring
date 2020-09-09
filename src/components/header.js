@@ -14,23 +14,23 @@ const Header = ({history})=>{
 
         <div className="icon-bars">
             <a className="active">
-                <i className="fa fa-bars" aria-hidden="true"></i>
+                <i class="fa fa-search"></i>
                 
             </a>
             <a>
-                <i className="fa fa-home" aria-hidden="true"></i>
+                <i class="fa fa-search"></i>
 
             </a>
             <a>
-                <i className="fa fa-comment-o" aria-hidden="true"></i>
+                <i class="fa fa-search"></i>
 
             </a>
             <a>
-                <i className="fa fa-search"></i>
+                <i class="fa fa-search"></i>
 
             </a>
             <a>
-                <i className="fa fa-camera" aria-hidden="true"></i>
+                <i class="fa fa-camera" aria-hidden="true"></i>
 
             </a>
 
@@ -40,7 +40,7 @@ const Header = ({history})=>{
                 <li>
                     <a>
                         <div className="list-icons">
-                            <i className="fa fa-home" aria-hidden="true"></i>
+                            <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
                         <div className="name">home</div>
                     </a>
@@ -48,7 +48,7 @@ const Header = ({history})=>{
                 <li>
                     <a>
                         <div className="list-icons">
-                            <i className="fa fa-home" aria-hidden="true"></i>
+                            <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
                         <div className="name">home</div>
                     </a>
@@ -56,7 +56,7 @@ const Header = ({history})=>{
                 <li>
                     <a>
                         <div className="list-icons">
-                            <i className="fa fa-home" aria-hidden="true"></i>
+                            <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
                         <div className="name">home</div>
                     </a>
@@ -64,7 +64,7 @@ const Header = ({history})=>{
                 <li>
                     <a>
                         <div className="list-icons">
-                            <i className="fa fa-home" aria-hidden="true"></i>
+                            <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
                         <div className="name">home</div>
                     </a>
@@ -72,7 +72,7 @@ const Header = ({history})=>{
                 <li>
                     <a>
                         <div className="list-icons">
-                            <i className="fa fa-home" aria-hidden="true"></i>
+                            <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
                         <div className="name">home</div>
                     </a>
@@ -80,7 +80,7 @@ const Header = ({history})=>{
                 <li>
                     <a>
                         <div className="list-icons">
-                            <i className="fa fa-home" aria-hidden="true"></i>
+                            <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
                         <div className="name">home</div>
                     </a>

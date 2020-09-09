@@ -6,8 +6,9 @@ class Search extends Component {
     render(){
         return(
             <Layout>
-        
-        
+                <div className="container-search">
+
+                </div>
             </Layout>
         )
     }

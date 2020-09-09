@@ -23,7 +23,7 @@ import Newsupdate from "../pages/newsupdate";
 import LiveVideo from "../pages/video";
 import Video from "../pages/livevideo"
 import Watch from "../pages/watch";
-import LiveVideoFinish from "../pages/liveVideoFinish";
+import LiveVideoFinish from "../pages/Livevideofinish";
 import Block from "../pages/block";
 import Suspended from "../pages/suspended";
 import Blocknew from "../pages/blocknew";
