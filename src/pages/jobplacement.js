@@ -22,14 +22,14 @@ class Jobplacement extends Component {
         e.preventDefault();
         if(this.state.jobtitle === '')
          return alert('Job title must not be empty')
-         if(this.state. joblocation =='')
+         if(this.state.joblocation ==='')
          return alert('job location must not be empty')
-         if(this.state.jobapplicationemail =='')
+         if(this.state.jobapplicationemail ==='')
          return alert('job application email must not be empty')
-         if(this.state.jobdescription =='')
+         if(this.state.jobdescription ==='')
          return alert('job description must not be empty')
 
-        firebase.firestore() .collection('job-placement').add(this.state)
+        firebase.firestore().collection('job-placement').add(this.state)
         .then(snap=>{
             alert('he must be succes')
     
@@ -41,10 +41,6 @@ class Jobplacement extends Component {
     }
 
 
-
-
-
-
     render(){
         return(
             <Layout>
@@ -54,18 +50,18 @@ class Jobplacement extends Component {
       </div>
        <form onSubmit={this.onSubmit}>
          <label htmlFor="">Job Title</label>
-         <input type="text" name="jobtitle" onChange={this.changeHandler}  name="jobtitle"/>
+         <input type="text" name="jobtitle" onChange={this.changeHandler} />
          <label htmlFor="">Job Location</label>
-         <input type="text" name="joblocation" onChange={this.changeHandler} name="joblocation"/>
+         <input type="text" name="joblocation" onChange={this.changeHandler} />
          <label htmlFor="">Job Application Email</label>
-         <input type="text" name="jobapplicationemail" onChange={this.changeHandler} name="jobapplicationemail"/>
+         <input type="text" name="jobapplicationemail" onChange={this.changeHandler}/>
          <div className="textrea">
             <label htmlFor="">Job Description</label>
             <textarea onChange={this.changeHandler} name="jobdescription" id="" cols="30" rows="10"/>
          <label htmlFor="">12 hours ago</label>
          <button className="besty">post</button>
 
-
+            
             
          </div>
       

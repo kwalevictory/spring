@@ -3,27 +3,47 @@ import "../css/editProfile.css"
 import Layout from "../components/layout";
 import good from "../images/good.jpg"
 import { Link } from "react-router-dom";
+import Context from "../components/context";
+import {withRouter} from "react-router-dom"
 
 class EditProfile extends Component{
+    static contextType = Context;
     constructor(props){
         super(props);
         this.state = {
+            profilePic:null,
+            bannerPic:null
         }
     }
     componentDidMount(){
     }
+    getImages = (event)=>{
+        const profileUpload = this.context.profileUpload
+        profileUpload(event,this, 'profilePic')
+    }
+    uploadBanner = (event)=>{
+        const profileUpload = this.context.profileUpload
+        profileUpload(event,this, 'bannerPic')
+    }
     render(){
+        if(this.context.state.user && this.context.state.profile)
         return(
             <Layout>
                 <div className="profile-top">
+                <label htmlFor="profileBanner">
+                    <span className="uploadbtn"></span>
+                </label>
                 <div className="banner">
-                    <img src={good} alt=""/>
+                    <img src={this.state.bannerPic?this.state.bannerPic:this.context.state.profile.bannerPic?this.context.state.profile.bannerPic:good} alt=""/>
+                    <input type="file" id="profileBanner" onChange={this.uploadBanner} style={{display:'none'}} name="profileBanner" />
                     <div className="profile-image">
-                        <span className="button"></span>
+                        <input type="file" id="profilePics" onChange={this.getImages} style={{display:'none'}} name="profilePic" />
+                        <img  style={{height:'100%', width:'100%',borderRadius:'50%'}} src={this.state.profilePic?this.state.profilePic:this.context.state.user.photoURL?this.context.state.user.photoURL:good} alt=""/>
+                        <label htmlFor="profilePics"><span className="button"></span></label>
                     </div>
                 </div> 
                 <div className="edit-profile-details">
-                    <h3>John Philip</h3>
+                    <h3>{this.context.state.userData.firstname + " " + this.context.state.userData.lastname}</h3>
                     <div className="edit-profile">
                         <span>Edit Your Profile</span>
                         <span>Chat icon</span>
@@ -32,30 +52,30 @@ class EditProfile extends Component{
                     <div className="eprofile">
                         <div className="edit-profile-left">
                             <ul>
-                                <li><span>icon</span><span>Nigeria</span></li>
-                                <li><span>icon</span><span>Asaba</span></li>
-                                <li><span>icon</span><span>victoryokonye@gmail.com</span></li>
-                                <li><span>icon</span><span>Male</span></li>
-                                <li><span>icon</span><span>Studied:National Open University of Nigeria</span></li>
-                                <li><span>icon</span><span>Relationship</span><span>Married</span></li>
-                                <li><span>icon</span><span>Relegion:</span><span>Christianity</span></li>
-                                <li><span>icon</span><span>Interested In:</span><span>Male</span></li>
+                                <li><span>icon</span><span>{this.context.state.profile.nationality}</span></li>
+                                <li><span>icon</span><span>{this.context.state.profile.city}</span></li>
+                                <li><span>icon</span><span>{this.context.state.user.email}</span></li>
+                                <li><span>icon</span><span>{this.context.state.profile.gender}</span></li>
+                                <li><span>icon</span><span>Studied:{this.context.state.profile.institution}</span></li>
+                                <li><span>icon</span><span>Relationship</span><span>{this.context.state.profile.relationship}</span></li>
+                                <li><span>icon</span><span>Relegion:</span><span>{this.context.state.profile.religion}</span></li>
+                                <li><span>icon</span><span>Interested In:</span><span>{this.context.state.profile.interested}</span></li>
                             </ul>
                         </div>
-                        {/* <div className="edit-profile-right">
+                        <div className="edit-profile-right">
                         <ul>
-                            <li><span>Delta</span></li>
-                            <li><span>bonnac road Delta State</span></li>
-                            <li><span>09064624754</span></li>
-                            <li><span>1999/02/02</span></li>
-                            <li><span>BSc Computer Sc</span></li>
-                            <li><span>Sport</span></li>
-                            <li><span>English</span></li>
-                            <li><span>besty</span></li>
+                            <li><span>{this.context.state.profile.state}</span></li>
+                            <li><span>{this.context.state.profile.address}</span></li>
+                            <li><span>{this.context.state.profile.phone}</span></li>
+                            <li><span>{this.context.state.profile.birthdate}</span></li>
+                            <li><span>{this.context.state.profile.program}</span></li>
+                            <li><span>{this.context.state.profile.hobbies}</span></li>
+                            <li><span>{this.context.state.profile.language}</span></li>
+                            <li><span>{this.context.state.profile.nickname}</span></li>
                         </ul>
-                        </div> */}
+                        </div>
                     </div>
-                    <p>I Love been honest</p>
+                    <p>{this.context.state.profile.about}</p>
                 </div> 
             </div>
 
@@ -126,6 +146,11 @@ class EditProfile extends Component{
             </div>
             </Layout>
         )
+        else
+        {
+            this.props.history.push('/profile')
+            return null
+        }
     }
 }
-export default EditProfile;
+export default withRouter(EditProfile);

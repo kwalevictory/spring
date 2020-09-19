@@ -19,7 +19,7 @@ const LiveVideo = ({history})=>{
             }
             myVideo.play()
         })
-    },[])
+    })
     const goLive = ()=>{
         history.push('/livevideo')
     }

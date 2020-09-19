@@ -1,8 +1,18 @@
 .profile-top {
     background: #fff;
     margin-bottom: 9px;
+    position: relative;
   }
-  
+  .profile-top .uploadbtn{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background: black;
+    right: 42px;
+    z-index: 999;
+    top: 280px;
+    border-radius: 50%;
+  }
   .banner {
     height: 300px;
     width: 100%;

@@ -1,0 +1,17 @@
+.search-userss{
+    width: 100%;
+    position: relative;
+
+}
+.search-userss input{
+    position: absolute;
+    width: 345px;
+    height: 40px;
+    margin-left: -8px;
+
+}
+.search-userss span i{
+    position: absolute;
+    margin-top: 12px;
+
+}

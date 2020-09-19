@@ -17,6 +17,8 @@
 .comment-post{
     display: flex;
     position: relative;
+    margin-top: 12px;
+
     
 }
 .comment-post .comment-name h1{
@@ -25,8 +27,7 @@
 }
 .comment-post .comments p{
     left: 12px;
-    font-size: 1rem;
-    
+    font-size: 1rem;   
 }
 .reply{
     display: flex;
@@ -34,17 +35,14 @@
     justify-content: space-around;
     width: 60%;
     margin-left: 35px;
-    
-
-}
-.reply .buttons button{
-    border: none;
+    margin-top: 12px;
 }
 
 .previous-replies{
     position: relative;
     left: 23px;
-
+    color: cadetblue;
+    margin-top: 12px;
 }
 .reply-many> img{
     position: relative;
@@ -59,6 +57,14 @@
     align-items: center;
     left: 34px;
 }
+.replys-many {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+    margin-left: 35px;
+    margin-top: 12px;
+}
 .reply-many p{
     position: relative;
     left: 12px;
@@ -68,10 +74,10 @@
     border-radius: 15px;
     margin-left: 10px;
     padding: 9px 0px;
+    position: relative;
 }
 .first h5{
     margin-left: 12px;
-
 }
 .first span{
     margin-left: 12px;
@@ -79,8 +85,6 @@
 .first p{
     margin-left: 12px;
 }
-
-
 .first-replies> img{
     width: 30px;
     height: 30px;
@@ -89,7 +93,10 @@
 .first-replies{
     display: flex;
     position: absolute;
-    left: 34px;
+    margin-left: 35px;
+    margin-top: 12px;
+
+
 }
 .replies-friend{
     display: flex;
@@ -99,11 +106,14 @@
     justify-content: space-around;
     margin-left: 50px;
 }
-.reply button{
-    border: none;
-    background: none;
-}
-.replies-friend button{
-    border: none;
-    background: none;
+
+.reply-last {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+    margin-left: 35px;
+    position: absolute;
+    margin-top: 94px;
+
 }

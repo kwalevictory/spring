@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { withRouter } from 'react-router-dom'
 import "../css/login.css"
 import firebase from "../database/users"
+import Context from "../components/context";
 //import {users} from "../database/users"
 
 class Login extends Component{
+    static contextType = Context
     constructor(props){
         super(props);
         this.state ={
-            username:'',
             password:'',
             firstname:'',
             lastname:'',
@@ -30,25 +31,20 @@ class Login extends Component{
     }
      onLogin = (event)=>{
          event.preventDefault();
-         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
-         .then(res=>{ 
-            this.props.history.push('/post')
-
-
-         })
-         .catch(error=>{
-             console.log(error)
-         })
+        const login = this.context.login
+            login(this.state.email, this.state.password,this.props)
     }
     signup= (e) =>{
         e.preventDefault();
-        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .then(rep=>{
-            this.props.history.push('/profile')
-        })
-        .catch(error=>{
-            console.log(error)
-        })
+        const register = this.context.register
+        register(this.state.email,this.state.password,this.state.firstname,this.state.lastname,this.props)
+        // firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+        // .then(rep=>{
+        //     this.props.history.push('/profile')
+        // })
+        // .catch(error=>{
+        //     console.log(error)
+        // })
     }
     forgetPassword=(e) =>{
         firebase.auth().sendPasswordResetEmail(this.state.email)
@@ -104,9 +100,6 @@ class Login extends Component{
                     </div>
                     <div className="form-group">
                         <input type="text" onChange={this.changeHandler} name="email" placeholder="Email"/>
-                    </div>
-                    <div className="form-group">
-                        <input type="text"  onChange={this.changeHandler} name="username" placeholder="Username"/>
                     </div>
                     <div className="form-group">
                         <input type="password" onChange={this.changeHandler} name="password" placeholder="Password"/>

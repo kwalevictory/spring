@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import {PostLayout as Layout} from "../components/layout";
 import {withRouter, Link} from "react-router-dom"
 import ProfileIcon from "../components/profileicon";
 import "../css/singlepost.css"
 import Status from "../components/status";
 import Posts from "../components/post";
+import Context from "../components/context";
+
 
 const Post = ({location})=>{
-//  console.log(location)
+    const{state}=useContext(Context)
     return(
         <Layout>
             <div className="post">
@@ -27,7 +29,13 @@ const Post = ({location})=>{
                 </div>
             </div>
             <Status/>
-            <Posts/>
+            {
+                state.posts?
+                state.posts.map(((post, i)=>{
+                   return <Posts key={i} post={post.data()} user={state.user}/>
+                }))
+                :''
+            }
         </Layout>
     );
 }

@@ -2,8 +2,39 @@ import React, {Component} from "react"
 import "../css/notification.css"
 import Layout from "../components/layout"
 import good from "../images/good.jpg"
+import firebase from "../database/users"
 
 class Notification extends Component {
+    constructor(props) {
+        super(props);
+        this.state ={
+            notification: true,
+            image: true,
+        }
+    }
+    handleshowNotification = (event) =>{
+        this.showNntification.bind(this);
+
+    }
+    notification =(event) =>{
+        event.preventDefualt();
+        Notification.requestPermission();
+        if(Permissions === "granted"){
+            Notification('');
+        }
+        firebase.firestore().collection('notification').add(this.state)
+        .then(snap=>{
+            alert('he must be true')
+
+        })
+        .catch(error=>{
+            alert(error)
+        })
+
+          
+    }
+    
+
 
 
 
@@ -53,23 +84,6 @@ class Notification extends Component {
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             </Layout>

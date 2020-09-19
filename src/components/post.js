@@ -3,15 +3,15 @@ import "./post.css"
 import good from "../images/good.jpg"
 import ProfileIcon from "./profileicon";
 import {Link} from "react-router-dom"
-const Post =({comment})=>{
+const Post =({comment,user,post})=>{
     return(
         <div className="timeline">
 		<div className="timeline-inner">
 			<div className="timeline-wrap">
 				<div className="timeline-head">
-                    <ProfileIcon/>
+                    <ProfileIcon user={post}/>
 					<div className="timeline-tag">
-						<h3>Hellen Saah &nbsp;</h3>
+						<h3>{post.name} &nbsp;</h3>
 						<span>
 							is with 
 							<h3>&nbsp;Jemimah Best</h3>
@@ -22,7 +22,7 @@ const Post =({comment})=>{
 			</div>
 			<div className="timeline-body">
 				<div className="timeline-text timeline-wrap">
-					<p>Life is like a notebook. two pages are already written by God. first page is birth. last page is Death. center pages are empty. So fill them with smile and love</p>
+				<p>{post.post}</p>
 				</div>
 				<div className="timeline-images">
 					<div className="img-two">

@@ -4,7 +4,7 @@ import Context from "./context";
 import {withRouter} from "react-router-dom"
 
 const Header = ({history})=>{
-    const {getImages} = useContext(Context)
+    const {getImages,logOut} = useContext(Context)
     const navigate = (file)=>{
         getImages(file)
         history.push('/newpost')
@@ -13,76 +13,73 @@ const Header = ({history})=>{
         <div className="header">
 
         <div className="icon-bars">
-            <a className="active">
-                <i class="fa fa-search"></i>
+            <a href="https://www.google.com" className="active">
+                <i className="fa fa-bars" aria-hidden="true"></i>
                 
             </a>
-            <a>
-                <i class="fa fa-search"></i>
+            <a href="https://www.google.com" onClick={(e)=>{e.preventDefault(); logOut()}}>
+                <i className="fa fa-home" aria-hidden="true"></i>
 
             </a>
-            <a>
-                <i class="fa fa-search"></i>
+            <a href="https://www.google.com">
+                <i className="fa fa-commenting-o" aria-hidden="true"></i>
 
             </a>
-            <a>
-                <i class="fa fa-search"></i>
+            <a href="https://www.google.com">
+                <i className="fa fa-search" aria-hidden="true"></i>
 
             </a>
-            <a>
-                <i class="fa fa-camera" aria-hidden="true"></i>
-
-            </a>
+            <input type="file" onChange={navigate} multiple id="images" style={{display:'none'}}/>
+            <label htmlFor="images">
+                    <i className="fa fa-camera" aria-hidden="true"></i>
+            </label>
 
         </div>
     
             <ul>
                 <li>
-                    <a>
+                    <a href="https://www.google.com" >
                         <div className="list-icons">
-                            <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
-                        <div className="name">home</div>
+                        <i className="fa fa-home" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="https://www.google.com">
                         <div className="list-icons">
-                            <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
-                        <div className="name">home</div>
+                        <i className="fa fa-home" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="https://www.google.com">
                         <div className="list-icons">
-                            <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
-                        <div className="name">home</div>
+                        <i className="fa fa-home" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="https://www.google.com">
                         <div className="list-icons">
-                            <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
-                        <div className="name">home</div>
+                        <i className="fa fa-home" aria-hidden="true"></i>
+
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="https://www.google.com">
                         <div className="list-icons">
-                            <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
-                        <div className="name">home</div>
+                        <i className="fa fa-home" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="https://www.google.com">
                         <div className="list-icons">
-                            <i class="fa fa-home" aria-hidden="true"></i>
                         </div>
-                        <div className="name">home</div>
+                        <i className="fa fa-home" aria-hidden="true"></i>
+
+
                     </a>
 
                 </li>

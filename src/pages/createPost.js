@@ -6,26 +6,50 @@ import UploadedImages from "../components/uploaded_images";
 import Context from "../components/context";
 import {withRouter} from "react-router-dom"
 import Privacy from "../components/privacy";
-import firebase from "../database/users"
+import {firestore,storage} from "../database/users"
 
 const CreatePost = ({history})=>{
-    const {images} = useContext(Context)
+    const {images,state} = useContext(Context)
     const [data,seData]=useState({
         post:'',
         images:images,
         privacy:false,
         privacyText:'',
-        uid:Math.floor(Math.random()*100)
     })
     const onSubmit =()=>{
         seData({...data, post:''});
-        firebase.firestore().collection('posts').add({
+        firestore.collection('posts').add({
             post:data.post,
-            uid:data.uid,
-            privacyText:data.privacyText
+            name:state.userData.firstname+" "+state.userData.lastname,
+            photoURL:state.user.photoURL,
+            uid:state.user.uid,
+            privacyText:data.privacyText,
+            createdAt: new Date().getMilliseconds()
         })
         .then(rep=>{
-            console.log(rep)
+            firestore.collection('posts').orderBy('createdAt','desc').limitToLast(1).onSnapshot(snap=>{
+                snap.forEach(doc=>{
+                    for(let i =0; i <state.files.length; i++){
+                        const task= storage.ref('post/'+doc.id).child(`${state.files[i].name}`).put(state.files[i])
+                        task.then(()=>{
+                            storage.ref('post/'+doc.id).child(`${state.files[i].name}`).getDownloadURL()
+                            .then(url=>{
+                                firestore.collection('post-images').doc(doc.id).set({url})             
+                            })
+                        })
+                    }
+                   
+                    // state.file.forEach((image,i)=>{
+                    //    const task= storage.ref('post/'+doc.id).child(`${image.name}`).put(image)
+                    //    task.then(()=>{
+                    //        storage.ref('post/'+doc.id).child(i).getDownloadURL()
+                    //        .then(url=>{
+                    //            firestore.collection('post-images').doc(doc.id).set({i:url})
+                    //        })
+                    //    })
+                    // })
+                })
+            })
             history.push('/post')
         })
         .catch(err=>{console.log(err)})
@@ -45,8 +69,7 @@ const CreatePost = ({history})=>{
                 <div className="personal-profile">
                     <ProfileIcon/>
                     <div className="personal">
-                        <h3>John</h3>
-                        <time>1hr</time>
+                        <h3>{state.userData?state.userData.firstname + " "+state.userData.lastname:''}</h3>
                         <i>icon</i>
                     </div>
                     <div aria-hidden="true" onClick={()=>seData({...data, privacy:!data.privacy})} className="personal-privacy">

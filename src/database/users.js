@@ -1,4 +1,7 @@
-import * as fire from "firebase/app";
+import firebase from "firebase/app";
+import "firebase/auth"
+import "firebase/firestore"
+import "firebase/storage"
 const firebaseConfig = {
     apiKey: "AIzaSyCLS7UmxOyZ8gCZPlvbQbBw5hAQVmEa0ew",
     authDomain: "spring-833d5.firebaseapp.com",
@@ -9,5 +12,8 @@ const firebaseConfig = {
     appId: "1:813013705765:web:ec4b704f6ca424e6a0cbcc",
     measurementId: "G-5P547QJBMQ"
   };
-  const firebase = fire.initializeApp(firebaseConfig)
-  export default firebase
+const app = firebase.initializeApp(firebaseConfig)
+ export const auth = app.auth()
+ export const firestore = app.firestore()
+ export const storage = app.storage()
+ export  default app

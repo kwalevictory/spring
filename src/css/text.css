@@ -5,22 +5,22 @@
 }
 .text-box textarea {
     position: relative;
-    width: 100%;
+    width: 91%;
+    height: 25px;
     padding: 0px 10px;
     box-sizing: border-box;
     border: 1px solid black;
     resize: none;
-
-
+    border-radius: 12px;
+    margin-left: 16px;
+    outline: 0;
 }
-.text-box button {
+ button {
     position: absolute;
-    top: 10px;
-    right: 14px;
-    border: none;
+    margin-left: -36px;
+    margin-top: 3px;
     background: none;
-    /*text-align: center;*/
-
-
-
+    border: none;
+    font-size: 19px;
+    color: lime;
 }

@@ -6,9 +6,24 @@ class Search extends Component {
     render(){
         return(
             <Layout>
-                <div className="container-search">
+                <div className="search-userss">
+                    <div className="user-search">
+                        <span>
+                            <i class="fa fa-search" aria-hidden="true"></i>
+
+                        </span>
+                        <input type="text" placeholder="search.."/>
+
+
+                    
+                    </div>
+
+                     
 
                 </div>
+                
+                
+                
             </Layout>
         )
     }

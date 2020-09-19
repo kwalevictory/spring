@@ -6,6 +6,18 @@ import good from "../images/good.jpg"
 
 
 class FriendRequest extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			accept:true,
+			delete: false,
+			
+			
+
+		}
+	}
+
+
     render(){
         return(
             <Layout>
@@ -25,8 +37,8 @@ class FriendRequest extends Component {
 			
 		</div>
 		<div className="button">
-			<button>Confirm</button>
-			<button >Delete..</button>
+			<button className="confirm">accept</button>
+			<button className="delete" >reject</button>
 			
 		</div>
 
@@ -45,7 +57,7 @@ class FriendRequest extends Component {
 			<h5>1 Mutual Friend</h5>
 		</div>
 		<div className="button1">
-			<button>Add fri....</button>
+			<button>sending</button>
 			<button>Remove</button>
 			
 		</div>

@@ -16,7 +16,7 @@ const Video = ({history})=>{
             }
             myVideo.play()
         })
-    },[])
+    })
     const goToFinish = ()=>{
         myVideo.srcObject.getTracks().forEach(track=>{
             track.stop()

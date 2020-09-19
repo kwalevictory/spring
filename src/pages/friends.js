@@ -8,6 +8,10 @@ import good from "../images/good.jpg"
 
 
 class Friends extends Component {
+
+
+
+
     render(){
         return(
             <Layout>
@@ -23,7 +27,7 @@ class Friends extends Component {
 						<div className="friend">
 							<img src={good} alt=""/>
 							<span>john philip</span>
-							<p className="online">offline</p>
+							<p  className="online">offline</p>
 						</div>
 						<div className="friend">
 							<img src={good} alt=""/>

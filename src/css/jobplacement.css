@@ -14,6 +14,9 @@
 	cursor: pointer;
 
 }
+.form span{
+	
+}
 
 
 label{
@@ -27,7 +30,7 @@ label{
 		text-align: center;
 	
 }
-input{
+.placement input{
 	width: 100%;
 	align-items: center;
 	padding: 1px 0;

@@ -1,9 +1,26 @@
 import React, { Component } from "react"
 import "../css/blocknew.css"
 import Layout from "../components/layout"
+// import BlockUi from 'react-block-ui';
+
 
 
 class Blocknew extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            blocking: false,
+            
+        }
+    }
+    toggleBlocking = (e) => {
+        this.setState({[e.target.name]:this.state.blocking});
+    }
+    toggleBlocking = (e) =>{
+        e.preventDefault();
+    } 
+    
+
     render(){
         return(
             <Layout>
@@ -24,7 +41,7 @@ class Blocknew extends Component {
 
                     </div>
                     <div className="block-two">
-                        <button>block</button>
+                        <button onClick={this.toggleBlocking}>block</button>
                         <button>cancel</button>
 
                     </div>
