@@ -26,14 +26,31 @@ import Suspended from "../pages/suspended";
 import Blocknew from "../pages/blocknew";
 import Report from "../pages/report";
 import Context from "../components/context";
+import Taguser from "../pages/taguser";
 import Login from "../pages/login"
+import Adverts from "../pages/adverts"
+import Viewjob from "../pages/viewjob";
+import Splash from "../pages/splash";
 const Auth = ()=>{
     const {state} = useContext(Context)
+    console.log(state)
     return(
         <>
         {
+          state.initializing?
+            <Splash/>
+            :
             state.user?
             <>
+            <Route path="/viewjob">
+              <Viewjob/>
+            </Route>
+            <Route path="/adverts">
+              <Adverts/>
+            </Route>
+            <Route path="/taguser">
+              <Taguser/>
+            </Route>
             <Route path="/report">
               <Report/>
             </Route>

@@ -41,28 +41,28 @@ const Header = ({history})=>{
                     <a href="https://www.google.com" >
                         <div className="list-icons">
                         </div>
-                        <i className="fa fa-home" aria-hidden="true"></i>
+                        <i className="fa fa-user" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.google.com">
                         <div className="list-icons">
                         </div>
-                        <i className="fa fa-home" aria-hidden="true"></i>
+                        <i className="fa fa-user-circle" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.google.com">
                         <div className="list-icons">
                         </div>
-                        <i className="fa fa-home" aria-hidden="true"></i>
+                        <i className="fa fa-newspaper-o" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.google.com">
                         <div className="list-icons">
                         </div>
-                        <i className="fa fa-home" aria-hidden="true"></i>
+                        <i className="fa fa-desktop" aria-hidden="true"></i>
 
                     </a>
                 </li>
@@ -70,14 +70,14 @@ const Header = ({history})=>{
                     <a href="https://www.google.com">
                         <div className="list-icons">
                         </div>
-                        <i className="fa fa-home" aria-hidden="true"></i>
+                        <i className="fa fa-briefcase" aria-hidden="true"></i>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.google.com">
                         <div className="list-icons">
                         </div>
-                        <i className="fa fa-home" aria-hidden="true"></i>
+                        <i className="fa fa-bell-o" aria-hidden="true"></i>
 
 
                     </a>

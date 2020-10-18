@@ -80,7 +80,7 @@ class Notification extends Component {
                         <span>also</span>
                         <p>commented on her photo</p>
                         <div className="notify-date">
-                            <p>2 daya ago</p>
+                            <p>2 day ago</p>
                         </div>
                     </div>
                 </div>

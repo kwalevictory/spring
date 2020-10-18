@@ -2,14 +2,30 @@ import React, {Component} from "react"
 import "../css/friends.css"
 import Layout from "../components/layout"
 import good from "../images/good.jpg"
-
+import firebase from "../database/users"
 
 
 
 
 class Friends extends Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			online:true,
+			offline:false,
+		}
+	}
+	online = (e) =>{
 
+		firebase.firestore().collection('friend').add(this.state)
+		.then(snap=>{
+			alert('')
+		})
+		.catch(error=>{
+			alert(error)
+		})
 
+	}
 
 
     render(){

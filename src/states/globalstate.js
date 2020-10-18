@@ -7,9 +7,12 @@ const GlobalState = ()=>{
         images:[],
         files:[],
         user:null,
+        users:[],
         userData:null,
         profile:null,
-        posts:[]
+        posts:[],
+        initializing:true,
+        errMsg:''
     }
 
     const reducers = (prevState, action)=>{
@@ -40,6 +43,21 @@ const GlobalState = ()=>{
                     ...prevState,
                     posts:action.payload.posts
                 }
+            case "SET_APP_STATE":
+                return{
+                    ...prevState,
+                    initializing:action.payload.initializing
+                }
+            case "GET_USERS":
+                return{
+                    ...prevState,
+                    users:action.payload.users
+                }
+            case "SET_ERROR":
+                return{
+                    ...prevState,
+                    errMsg:action.payload.errMsg
+                }
             default:
                 return prevState;
         }
@@ -52,7 +70,7 @@ const GlobalState = ()=>{
         }))
     }
     const getPosts = ()=>{
-        firestore.collection('posts').onSnapshot(snap=>{
+        firestore.collection('posts').orderBy('createdAt', 'desc').onSnapshot(snap=>{
             dispatch({type:"GET_POSTS", payload:{posts:snap.docs}})
         })
     }
@@ -69,6 +87,7 @@ const GlobalState = ()=>{
             else{
                 dispatch({type:"SET_USER", payload:{user:user}})
             }
+            dispatch({type:'SET_APP_STATE', payload:{initializing:false}})
         })
     },[])
 
@@ -91,10 +110,15 @@ const GlobalState = ()=>{
                 auth.signInWithEmailAndPassword(email, password)
                 .then(res=>{ 
                    props.history.push('/post')
+                   dispatch({type:'SET_ERROR', payload:{errMsg:""}})
+                   return false
        
        
                 })
                 .catch(error=>{
+                    dispatch({type:'SET_ERROR', payload:{errMsg:error.message}})
+                    return true;
+       
                     console.log(error)
                 })
            },
@@ -104,7 +128,9 @@ const GlobalState = ()=>{
                 firestore.collection('users').doc(rep.user.uid).set({
                     email,
                     firstname,
-                    lastname
+                    lastname,
+                    friends:[],
+                    deleted:[]
                 })
                 .then(()=>{
                     firestore.collection('users').doc(rep.user.uid).onSnapshot((snap)=>{
@@ -121,6 +147,45 @@ const GlobalState = ()=>{
                 auth.signOut()
                 
            },
+           getUsers:()=>{
+            let users=[]
+            firestore.collection('users').orderBy('firstname', 'asc').get()
+            .then(docs=>{
+                docs.forEach(doc=>{
+                    if(doc.data().email !== state.user.email)
+                    users.push({id:doc.id, ...doc.data()})
+                    dispatch({type:"GET_USERS", payload:{users:users}})
+                })
+            })
+           },
+           removeUser:(user)=>{
+                const index = state.users.findIndex(item=>item.id === user.id)
+                state.users.splice(index,1)
+                let deleted = []
+                if(state.userData.deleted.length>0)
+                deleted.push(...state.userData.deleted)
+                deleted.push(user.id)
+                firestore.collection('users').doc(state.user.uid).update({
+                    deleted:deleted
+                })
+                dispatch({type:"GET_USERS", payload:{users:state.users}})
+           },
+           sendFriendRequest:(user)=>{
+            let friends = []
+            if(state.userData.friends.length>0)
+            friends.push(...state.userData.friends)
+            friends.push({...user, accepted:false})
+            firestore.collection('users').doc(state.user.uid).update({
+                friends:friends
+            })
+           },
+           cancelFriendRequest:(user)=>{
+            const index = state.userData.friends.findIndex(item=>item.id === user.id)
+            state.userData.friends.splice(index,1)
+            firestore.collection('users').doc(state.user.uid).update({
+                friends:state.userData.friends
+            })
+           },
            profileUpload:(event,object,name)=>{
             let image = event.target.files[0];
             let reader = new FileReader();
@@ -136,9 +201,12 @@ const GlobalState = ()=>{
                    storage.ref(name==='profilePic'?state.user.uid:'banner/'+state.user.uid).getDownloadURL()
                    .then(url=>{
                        if(name==='profilePic')
-                        state.user.updateProfile({
-                          photoURL:url
-                      })
+                        {
+                            state.user.updateProfile({
+                                photoURL:url
+                            })
+                            firestore.collection('users').doc(state.user.uid).update({photoURL:url})
+                        }
                       else
                       firestore.collection('profile').doc(state.user.uid).update({bannerPic:url})
                    })

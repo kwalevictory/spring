@@ -28,8 +28,7 @@ class Suspended extends Component {
                     </div>
                     <div className="total-suspend">
                         <button>Suspended</button>
-                        <button>cancel</button>
-
+                    
                     </div>
 
                 </div>

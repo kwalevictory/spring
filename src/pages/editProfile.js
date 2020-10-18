@@ -84,57 +84,20 @@ class EditProfile extends Component{
             <div className="friends">
                 <h4>Friends Photos</h4>
                 <div className="friends-photos">
-                    <div className="friend">
-                        <div className="friend-image">
-                            <img src={good} alt=""/>
-                        </div>
-                        <h4>Chi Love</h4>
-                    </div>
-                    <div className="friend">
-                        <div className="friend-image">
-                            <img src={good} alt=""/>
-                        </div>
-                        <h4>Queen Joel</h4>
-                    </div>
-                    <div className="friend">
-                        <div className="friend-image">
-                            <img src={good} alt=""/>
-                        </div>
-                        <h4>Obi Love</h4>
-                    </div>
-                    <div className="friend">
-                        <div className="friend-image">
-                            <img src={good} alt=""/>
-                        </div>
-                        <h4>John Philip</h4>
-                    </div>
-                    <div className="friend">
-                        <div className="friend-image">
-                            <img src={good} alt=""/>
-                        </div>
-                        <h4>Osas Lucky</h4>
-                    </div>
-                    <div className="friend">
-                        <div className="friend-image">
-                            <img src={good} alt=""/>
-                        </div>
-                        <h4>Peter Okon</h4>
-                    </div>
-                    <div className="friend">
-                        <div className="friend-image">
-                            <img src={good} alt=""/>
-                        </div>
-                        <h4>Monday best</h4>
-                    </div>
-                    <div className="friend">
-                        <div className="friend-image">
-                            <img src={good} alt=""/>
-                        </div>
-                        <h4>James Ossia</h4>
-                    </div>
+                    {
+                        this.context.state.userData.friends.length>0&&
+                            this.context.state.userData.friends.map((friend,i)=>(
+                                <div className="friend">
+                                <div className="friend-image">
+                                    <img src={friend.photoURL !== null?friend.photoURL:good} alt=""/>
+                                </div>
+                                <h4>{`${friend.firstname} ${friend.lastname}`}</h4>
+                            </div>
+                            ))
+                    }
                 </div>
                 <div className="friends-footer">
-                    <p>100 friends</p>
+                    <p>{this.context.state.userData.friends.length} {this.context.state.userData.friends.length===1?'friend':'friends'}</p>
                     <Link to="/friends">See All friends</Link>
                 </div>
             </div>

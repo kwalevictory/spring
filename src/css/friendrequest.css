@@ -1,142 +1,191 @@
-.fr{
-	width: 70%;
-	height: 500px;
-	background: white;
-	border-radius: 40px;
-	margin: 0 auto;
-}
-.fr p{
-	text-align: center;
-	
 
-
+.continal-request {
+	border-bottom: 3px solid #dadada;
+    height: 265px;
+    margin-left: -10px;
+    width: 361px;
 }
-.name{
-	
+.relationship h4{
+	margin-left: 163px;
+	margin-top: -18px;
+	color: chocolate;
 }
-h6{
-     
-}
-.name h2 span{
-	position: absolute;
-	right: 2px;
-}
-h3{
-
-}
-h4{
-	
-}
-h5{
-	
-}
- .name h2{
-	     /* margin: 12px 0; */
-		 padding: 5px;
-		 /* text-align: left; */
-		 font-size: 17px;
-		 margin-left: -21px;
- }
-.img >img,
-.img1 > img{
-	width: 90px;
-	height: 90px;
-	border-radius: 60%;
-	cursor: pointer;
-}
- 
-.img{
-	position: relative;
-	text-align: center;
-	height: 90px;
-	width: 90px;
-	border-radius: 60%;
-	cursor: pointer;
-
-}
-.img1 {
-	display: grid;
-	grid-auto-flow: column;
-	/*grid-column-gap: 16px;*/
-	grid-auto-columns: 1fr 11fr;
-	align-items: center;
-	margin-top: 15px;
-
-}
-.img1 img{
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	cursor: pointer;
-}
-.button button{
-	margin-top: 12px;
-}
-
-.button button:first-child{
-	position: relative;
-	background: blue;
-	cursor: pointer;
-	outline: 0;
-	font-size: 30px;
+.relationship h3{
 	margin-left: 12px;
 
-
+}
+.relationship {
+	margin-top: -10px;
+    /* position: absolute; */
+    color: forestgreen;
+    font-size: 14px;	
+}
+.friendship{
+	/* position: absolute; */
+	/* margin-top: 24px; */
+	margin-left: 12px;
 
 }
-.button button:last-child{
-	position: absolute;
-	cursor: pointer;
+.number{
+	margin-top: -25px;
+    margin-left: 314px;
+}
+.requestimage> img{
+	height: 90px;
+	width: 90px;
+	border-radius: 60px;
+	margin-left: 12px;
+
+}
+.requestimage{
+	/* position: absolute; */
+    /* margin-top: 59px; */
+}
+.completedimage> img{
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+
+}
+.completed {
+	/* position: absolute; */
+	/* margin-top: 162px; */
+	margin-left: 12px;
+	
+
+}
+.addfrinend .peoples + .add-suggested-friend{
+	border-top: none;
+}
+.addfrinend .add-suggested-friend:last-child{
+	padding-bottom: 70px;
+}
+.mutual {
+	margin-top: -33px;
+    margin-left: 46px;
+    color: darkgray;
+    font-size: 15px;
+}
+.confirm{
+	/* position: absolute; */
+    /* margin-top: 205px; */
+}
+.confirm button{
+	margin-left: 12px;
+    width: 82px;
+    height: 23px;
+    border-radius: 4px;
+    outline: 0;
+    background-color: #02d480;
+    border: none;
+    color: white;
+    font-size: 15px;	
+}
+.delete{
+	/* position: absolute; */
+    /* margin-top: 205px; */
+    margin-left: 104px;
+}
+.delete button{
+	width: 82px;
+	height: 23px;
+	border-radius: 4px;
 	outline: 0;
-	font-size: 20px;
-	padding-right: 20px;
-	/*padding-left: 20px;*/
-	margin-left: 24px;
+	background: gainsboro;
+	border: none;
+	color: black;
+	font-size: 15px;
 
 }
-.img2 {
-	display: grid;
-	grid-auto-flow: column;
-	grid-auto-columns: 1fr 11fr;
-	align-items: center;
+.addimage> img{
+	height: 90px;
+    width: 90px;
+	border-radius: 50px;
+	margin-left: 2px;
+
 }
-.img2 img {
-	width: 20px; 
-	height: 20px;
+.addname p{
+	margin-left: 2px;
+
+}
+.peoples{
+	margin-top: 10px;
+    position: absolute;
+    font-size: 15px;
+    color: forestgreen;
+		
+}
+.peoples h4{
+	margin-left: 2px;
+
+}
+.add-suggested-friend{
+	border-top: 2px solid gainsboro;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.action-btns{
+	display: flex;
+	width: 60%;
+	justify-content: space-between;
+}
+.addname {
+	/* position: absolute; */
+    margin-top: 13px;
+}
+.addimage{
+	/* position: absolute; */
+    margin-top: 24px;
+}
+.mutualimage> img{
+	height: 40px;
+	width: 40px;
 	border-radius: 50%;
 }
-.button1 button:first-child{
-	position: relative;
-	background: blue;
-	cursor: pointer;
-	outline: 0;
-	font-size: 30px;
-
-	
+.addmutual {
+	/* position: absolute; */
+    margin-top: 15px;
 }
-.button1 button:last-child{
-	position: absolute;
-	cursor: pointer;		
-	outline: 0;
-	font-size: 30px;
-	/*padding-right: 20px;
-	padding-left: 20px;*/
-	margin-left: 24px;
+.mutualimage{
+	margin-left: 2px;
+
+}
+.mutualss{
+	margin-top: -33px;
+    margin-left: 46px;
+    color: darkgray;
+    font-size: 15px;
+}
+.addconfirm{
+		margin-top: 25px;
+		/* position: absolute; */
+		margin-left: -8px;
+
+}
+.addconfirm button{
+	margin-left: 12px;
+    width: 82px;
+    height: 23px;
+    border-radius: 4px;
+    outline: 0;
+    background-color: #02d480;
+    border: none;
+    color: white;
+    font-size: 15px;	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.remove{
+	/* position: absolute; */
+    margin-top: 25px;
+    /* margin-left: 96px; */
+}
+.remove button{
+	width: 82px;
+	height: 23px;
+	border-radius: 4px;
+	outline: 0;
+	background: gainsboro;
+	border: none;
+	color: black;
+	font-size: 15px;
+}

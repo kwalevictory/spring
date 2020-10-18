@@ -10,9 +10,14 @@
 
 }
 .button-container-div button{
-	font-size: 20px;
-	cursor: pointer;
-
+	font-size: 17px;
+    cursor: pointer;
+    border: none;
+    width: 103px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+    background: gainsboro;
 }
 .form span{
 	

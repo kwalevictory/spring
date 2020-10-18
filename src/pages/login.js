@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import "../css/login.css"
 import firebase from "../database/users"
 import Context from "../components/context";
+import Splash from "./splash";
 //import {users} from "../database/users"
 
 class Login extends Component{
@@ -13,7 +14,8 @@ class Login extends Component{
             password:'',
             firstname:'',
             lastname:'',
-            email:''
+            email:'',
+            loading:false
         }
     }
      changeHandler = (e)=>{
@@ -31,8 +33,9 @@ class Login extends Component{
     }
      onLogin = (event)=>{
          event.preventDefault();
+         this.setState({loading:true})
         const login = this.context.login
-            login(this.state.email, this.state.password,this.props)
+           login(this.state.email, this.state.password,this.props)
     }
     signup= (e) =>{
         e.preventDefault();
@@ -56,6 +59,8 @@ class Login extends Component{
         })
     }
  render(){
+     if(this.state.loading)
+     return <Splash/>
     return (
         <div id="a">
             <div className="form">
@@ -68,13 +73,8 @@ class Login extends Component{
                     </li>
                 </ul>
 
-                <div className="sicon">
-                    <ul className="social">
-                        <li><i className="fa fa-briefcase" aria-hidden="true"></i></li>
-                        <li><i className="fa fa-newspaper-o" aria-hidden="true"></i></li>
-                        <li><i className="fa fa-comment" aria-hidden="true"></i></li>
-                    </ul>
-                </div>
+                
+    
                 <h3>Spring</h3>
                 <form id="login"  onSubmit={event=>this.onLogin(event)}>
                     <div className="form-group">

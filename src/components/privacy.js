@@ -29,6 +29,37 @@ const Privacy = ({onClose})=>{
                                 <input onChange={(event)=>setPrivacy(event.target.value)} defaultValue="Friends"  name="privacy" id="pr2" type="radio"/>
                             </span>
                         </li>
+                        <li className="body-items">
+                            <span>
+                                <label htmlFor="pr2">
+                                    <i>icon</i> Advertisement
+                                </label>
+                            </span>
+                            <span>
+                                <input onChange={(event)=>setPrivacy(event.target.value)} defaultValue="Friends"  name="privacy" id="pr2" type="radio"/>
+                            </span>
+                        </li>
+                        <li className="body-items">
+                            <span>
+                                <label htmlFor="pr2">
+                                    <i>icon</i> Job placement
+                                </label>
+                            </span>
+                            <span>
+                                <input onChange={(event)=>setPrivacy(event.target.value)} defaultValue="Friends"  name="privacy" id="pr2" type="radio"/>
+                            </span>
+                        </li>
+                        <li className="body-items">
+                            <span>
+                                <label htmlFor="pr2">
+                                    <i>icon</i> Video from users
+                               </label>
+                            </span>
+                            <span>
+                                <input onChange={(event)=>setPrivacy(event.target.value)} defaultValue="Friends"  name="privacy" id="pr2" type="radio"/>
+                            </span>
+                        </li>
+
                     </ul>
                 </div>
                 <div className="btns">

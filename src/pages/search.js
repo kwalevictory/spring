@@ -7,15 +7,11 @@ class Search extends Component {
         return(
             <Layout>
                 <div className="search-userss">
-                    <div className="user-search">
-                        <span>
-                            <i class="fa fa-search" aria-hidden="true"></i>
+                    <div className="user-search">  
+                            
+                        <input type="text" placeholder="Search..."/>
+                        
 
-                        </span>
-                        <input type="text" placeholder="search.."/>
-
-
-                    
                     </div>
 
                      

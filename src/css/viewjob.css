@@ -1,0 +1,53 @@
+.viewjob .post-job{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+.viewjob .post-job .views{
+    margin-left: 10px;
+}
+.viewjob .post-job .views i{
+    margin-left: 10px;
+}
+.details-job h2{
+    text-align: center;
+    margin-top: 12px;
+    font-size: 17px;
+}
+.details-job p {
+    
+}
+
+.details-footer{
+    margin-top: 15px;
+}
+.details-footer p span{
+    margin-right: 8px;
+}
+.details-footer ul{
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-column-gap: 10%;
+    list-style: none;
+    align-items: center;
+    padding-top: 15px;
+
+}
+.details-footer ul li{
+    text-align: center;
+    display: flex;
+    align-content: center;
+    background: #dadada;
+    padding: 0px 26px;
+
+    font-size: 1rem;
+    border-radius: 60px;
+
+}
+.details-footer ul li span{
+    font-size: 22px;
+    margin-right: 7px;
+}
+
+

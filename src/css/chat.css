@@ -1,172 +1,142 @@
 
-.preview-chat {
-    display: flex;
-    border-bottom: 5px solid #dadada;
-    margin-top: -5px;
-    
-    
-
+.previewchat{
+	width: 111%;
+    overflow: hidden;
+    /* background: #ffffff; */
+	border-bottom: 2px solid #dadada;
+	margin-left: -13px;
 
 }
-.preview-chat .preview-images {
-    height: 48px;
-    width: 48px;
-    border-radius: 40px;
-    margin-left: 10px;
-    margin-right: 10px;
+.previewchat .previews-inners{
+	width: 100%;
+	height: 100%;
+	/*margin: 2.5% 0;*/
+}
+.previewchat .previews-inners .carousels{
+	height: 52px;
+	display: flex;
+	overflow-x: scroll;
+	padding: 30px 0 10px 0;
+}
+.previewchat .previews-inners .carousels::-webkit-scrollbar{
+	width:0;
+}
+ .previews-inners .carousels .items{
+	width: 42px;
+    height: 13px;
+    margin: 0 12px;
+    /* border-radius: 30px; */
     position: relative;
+    /* margin-top: 0px; */
+}
+.previewchat .previews-inners .carousels .items::after{
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.3);
+	width: 100%;
+	height: 100%;
+	border-radius: 30px;
+}
+.previewchat .previews-inners .carousels .items h4{
+	position: absolute;
+    bottom: -34px;
+    /* left: 20px; */
+    /* font-size: 1.9rem; */
+    /* color: #ffffff; */
+    /* z-index: 2; */
+    font-size: 14px;
+    margin-left: 1px;
+}
+.previewchat .previews-inners .carousels .items img{
+	height: 50px;
+	width: 50px;
+	border-radius: 30px;
+	margin-top: -52px;
 
 }
-.preview-chat .users p{
-    bottom: 12px;
-}
-.single-preview{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.active-user> img{
+	width: 51px;
+    height: 51px;
+    border-radius: 33px;
+    margin-top: 2px;
+	margin-left: 14px;
 
 }
-.online {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    border-bottom:1px solid #dadada;
-    position: relative;
-
+.active-user{
+	display: flex;
 }
-.online-image{
-    width: 40px;
-    height: 40px;
-    border-radius: 50px;
-    padding: 5px;
-}
-.online li{
+.active-user p {
+	margin-left: 75px;
     position: absolute;
-    left: 12px;
-}
-.online span{
-    /*position: relative;*/
-    left: 12px;
-}
-.online p{
-    right: 7px;
-    position: absolute;
-
-}
-.duration-time{
-    text-align: center;
     margin-top: 12px;
-    font-size: 12px;
 }
-.preview-message {
-    text-align: center;
-    border-bottom:1px solid #dadada;
+.active-user h4{
+	position: absolute;
+    margin-left: 265px;
+    margin-top: 12px;
+}
+.chat-history{
+	border-bottom: 1px solid #dadada;
+	margin-left: -9px;
+	margin-right: -11px;
+	padding: 9px;
 
 }
-.send-message {
-    margin-left: 12px;
-    margin: 10px;
-    border-radius: 10px;
-    background: whitesmoke;
-    padding: 9px;
-}
+.previewss button{
+	margin-left: 103px;
 
-.preview-messages  button{
-    text-align: center;
-    position: relative;
-    left: 120px;
-    margin: 12px;
-    color: blueviolet;
-    
 }
-.sends-message{
-    margin-left: 12px;
-    margin: 10px;
-    border-radius: 10px;
-    background: whitesmoke;
-    padding: 9px;
+.chat-time{
+	text-align: center;
+    margin-top: 12px;
 }
-.preview-messages  p{
-    position: relative;
-    text-align: center;
-    font-size: 12px;   
+.send-messages{
+	position: absolute;
+    right: 12px;
+    background: antiquewhite;
+    padding: 7px;
+    border-radius: 12px;
+    margin-top: 12px;
 }
-
-
-.chat-message> img{
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-}
-.chat-message{
-    display: flex;
-    position: relative;
+.recieveimage> img{
+	width: 51px;
+    height: 51px;
+    border-radius: 33px;
+    margin-top: 59px;
+    position: absolute;
 }
 .recieve-message{
-    position: absolute;
-    right: 21px;
+	position: absolute;
+    margin-top: 68px;
+    left: 74px;
+    background: blue;
+    padding: 9px;
+    border-radius: 20px;
+}
+.draw-line{
+	border-bottom: 1px solid #dadada;
+    margin-left: -13px;
+    margin-top: 142px;
+	width: 363px;
+	position: absolute;
+}
+.box-mess textarea{
+	position: absolute;
+    margin-top: 7px;
+    margin-left: 29px;
+    width: 269px;
+    height: 31px;
     border-radius: 12px;
-    background: paleturquoise;
-    padding: 7px;
-    
+    outline: 0;
 }
-.chat-messagess> img{
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-}
-.chat-messagess{
-    display: flex;
-    position: relative;
-    bottom: 0;
-    padding: 20px 0px;
-}
-.chat-messagess p{
-    font-size: 12px;
-}
-.personal-messages{
-        font-size: 12px;
-        right: 21px;
-        margin-top: -18px;
-        border-radius: 12px;
-        background: paleturquoise;
-        padding: 7px;
-        position: absolute;
-
-
-}
-.time-duration {
-    text-align: center;
+.box-mess button{
+	position: absolute;
+    right: 12px;
     margin-top: 12px;
-    font-size: 12px;
 }
-.previous-messages {
-    text-align: center;
-    border-bottom:1px solid #dadada;
-}
-.previous-messages p{
-    margin: 12px;
-}
-.list-messages> img {
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    margin-top: 5px;
 
-}
-.list-messages{
-    display: flex;
-    margin-top: 12px;
 
-}
-.lists-user h1{
-    margin-left: 5px;
-    font-size: 21px;
-    
-}
-.lists-user p{
-    margin-left: 6px;
 
-}
 

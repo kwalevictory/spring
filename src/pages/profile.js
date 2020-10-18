@@ -114,7 +114,7 @@ class Profile extends Component{
                                 <span>Add Your Personal details</span>
                             </div>
                             <div className="chatbox">
-                                <i className="fa fa-commenting-o" aria-hidden="true"></i>
+                                
                             </div>
                         </div>
                     </div>

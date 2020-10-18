@@ -7,7 +7,7 @@ import Context from "../components/context";
 import {withRouter} from "react-router-dom"
 import Privacy from "../components/privacy";
 import {firestore,storage} from "../database/users"
-
+import {firestore as store} from "firebase";
 const CreatePost = ({history})=>{
     const {images,state} = useContext(Context)
     const [data,seData]=useState({
@@ -17,6 +17,7 @@ const CreatePost = ({history})=>{
         privacyText:'',
     })
     const onSubmit =()=>{
+        let urls = [];
         seData({...data, post:''});
         firestore.collection('posts').add({
             post:data.post,
@@ -24,33 +25,29 @@ const CreatePost = ({history})=>{
             photoURL:state.user.photoURL,
             uid:state.user.uid,
             privacyText:data.privacyText,
-            createdAt: new Date().getMilliseconds()
+            createdAt: store.FieldValue.serverTimestamp()
         })
         .then(rep=>{
-            firestore.collection('posts').orderBy('createdAt','desc').limitToLast(1).onSnapshot(snap=>{
+            firestore.collection('posts').orderBy('createdAt','desc').limit(1).get()
+            .then(snap=>{
                 snap.forEach(doc=>{
                     for(let i =0; i <state.files.length; i++){
-                        const task= storage.ref('post/'+doc.id).child(`${state.files[i].name}`).put(state.files[i])
+                        const task= storage.ref('post/'+state.files[i].name).put(state.files[i])
                         task.then(()=>{
-                            storage.ref('post/'+doc.id).child(`${state.files[i].name}`).getDownloadURL()
+                            storage.ref('post/'+state.files[i].name).getDownloadURL()
                             .then(url=>{
-                                firestore.collection('post-images').doc(doc.id).set({url})             
+                                urls.push(url)  
+                                firestore.collection('posts').doc(doc.id).update({images:urls})          
                             })
                         })
                     }
-                   
-                    // state.file.forEach((image,i)=>{
-                    //    const task= storage.ref('post/'+doc.id).child(`${image.name}`).put(image)
-                    //    task.then(()=>{
-                    //        storage.ref('post/'+doc.id).child(i).getDownloadURL()
-                    //        .then(url=>{
-                    //            firestore.collection('post-images').doc(doc.id).set({i:url})
-                    //        })
-                    //    })
-                    // })
                 })
+               // firestore.collection('post-images').doc(doc.id).set({images:urls})
             })
-            history.push('/post')
+        })
+        .then(()=>{
+                history.push('/post')
+        
         })
         .catch(err=>{console.log(err)})
     }
@@ -80,6 +77,9 @@ const CreatePost = ({history})=>{
                 <textarea onChange={(event)=>seData({...data, post:event.target.value})} placeholder="What is in your mind?" defaultValue={data.post}/>
                 </div>
                 <UploadedImages images={images}/>
+                <div className="down-icons">
+
+                </div>
                 <button onClick={onSubmit}>Post</button>
                 <button>Promote Post</button>
             </div>

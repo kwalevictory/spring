@@ -1,6 +1,5 @@
 import React from "react";
 import "./post.css"
-import good from "../images/good.jpg"
 import ProfileIcon from "./profileicon";
 import {Link} from "react-router-dom"
 const Post =({comment,user,post})=>{
@@ -24,16 +23,35 @@ const Post =({comment,user,post})=>{
 				<div className="timeline-text timeline-wrap">
 				<p>{post.post}</p>
 				</div>
-				<div className="timeline-images">
-					<div className="img-two">
-						<img src={good} alt=""/>
-						<div className="img-three-inner">
-							<span>+4</span>
-							<img src={good} alt=""/>
-							<img src={good} alt=""/>
+					{
+						post.images?
+						<div className="timeline-images">
+							{
+								post.images.length === 1?
+								<div className="img-one">
+									<img src={post.images[0]} alt={post.post}/>
+								</div>
+								:
+								post.images.length === 2?
+								<div className="img-two">
+									<img src={post.images[0]} alt=""/>
+									<img src={post.images[1]} alt=""/>
+								</div>
+								:
+								<div className="img-two">
+									<img src={post.images[0]} alt=""/>
+									<div className="img-three-inner">
+										{
+											post.images.length-3>0&&<div className="overlay"><span>+{post.images.length -3}</span></div>
+										}
+										<img src={post.images[1]} alt=""/>
+										<img src={post.images[2]} alt=""/>
+									</div>
+								</div>
+							}
 						</div>
-					</div>
-				</div>
+						:''
+					}
 			</div>
 			<div className="timeline-footer timeline-wrap">
 				<p>
@@ -52,11 +70,8 @@ const Post =({comment,user,post})=>{
 					</li>
 				</ul>
 			</div>
-			<div style={{display:'grid', justifyContent:'space-between', gridAutoFlow:'column', marginTop:'20px', marginBottom:'20px',borderTop: '1px solid #ccc', paddingTop:'20px'}} >
-				<ProfileIcon size={40}/>
-				<textarea style={{borderRadius:'15px',outline:'none', padding: '8px'}} cols="30" rows="3" placeholder="Write a comment..."></textarea>
-				<button style={{padding:'12px',height:'43px'}}>Post</button>
-			</div>
+			
+		
 		</div>
 	</div>
     )

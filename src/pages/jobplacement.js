@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import firebase from "../database/users"
 
 
+
 class Jobplacement extends Component {
     constructor(props){
         super(props);
@@ -58,7 +59,7 @@ class Jobplacement extends Component {
          <div className="textrea">
             <label htmlFor="">Job Description</label>
             <textarea onChange={this.changeHandler} name="jobdescription" id="" cols="30" rows="10"/>
-         <label htmlFor="">12 hours ago</label>
+         <label htmlFor="">10/4/2020</label>
          <button className="besty">post</button>
 
             

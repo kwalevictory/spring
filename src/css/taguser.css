@@ -1,0 +1,37 @@
+.tag-users> img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+
+}
+
+.tag-mem {
+    display: flex;
+    margin-top: 7px;
+
+}
+.tag-mem input{
+    position: absolute;
+    margin-left: 245px;
+    margin-top: -34px;
+
+}
+.tag-mem h6{
+    position: relative;
+    margin-top: -40px;
+    margin-left: 72px;
+    font-size: 16px;
+}
+.done {
+    width: 100%;
+    padding:8px 0;
+    color:#fff;
+    background: blueviolet;
+    border:none;
+    border-radius: 10px;
+    cursor: pointer;
+	outline: 0;
+	margin-top: 12px;
+
+}
+

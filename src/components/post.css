@@ -55,7 +55,7 @@
 	grid-row-gap: 2%;
 	position: relative;
 }
-.timeline-body .timeline-images .img-three-inner:after{
+.timeline-body .timeline-images .img-three-inner .overlay{
 	height: 49%;
 	width: 100%;
 	position: absolute;

@@ -1,0 +1,119 @@
+
+.comment-post> img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+.comment-name{
+    background: whitesmoke;
+    border-radius: 15px;
+    margin-left: 10px;
+    padding: 10px;
+}
+.comments{
+    margin-top: -2px;
+
+}
+.comment-post{
+    display: flex;
+    position: relative;
+    margin-top: 12px;
+
+    
+}
+.comment-post .comment-name h1{
+    font-size: 1rem;
+    position: relative;
+}
+.comment-post .comments p{
+    left: 12px;
+    font-size: 1rem;   
+}
+.reply{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+    margin-left: 35px;
+    margin-top: 12px;
+}
+
+.previous-replies{
+    position: relative;
+    left: 23px;
+    color: cadetblue;
+    margin-top: 12px;
+}
+.reply-many> img{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    margin: 5px;
+}
+.reply-many{
+    position: relative;
+    display: flex;
+    align-items: center;
+    left: 34px;
+}
+.replys-many {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+    margin-left: 35px;
+    margin-top: 12px;
+}
+.reply-many p{
+    position: relative;
+    left: 12px;
+}
+.first{
+    background: whitesmoke;
+    border-radius: 15px;
+    margin-left: 10px;
+    padding: 9px 0px;
+    position: relative;
+}
+.first h5{
+    margin-left: 12px;
+}
+.first span{
+    margin-left: 12px;
+}
+.first p{
+    margin-left: 12px;
+}
+.first-replies> img{
+    width: 30px;
+    height: 30px;
+    border-radius:20px;
+}
+.first-replies{
+    display: flex;
+    position: absolute;
+    margin-left: 35px;
+    margin-top: 12px;
+
+
+}
+.replies-friend{
+    display: flex;
+    align-items: center;
+    margin-top: 110px;
+    justify-content: center;
+    justify-content: space-around;
+    margin-left: 50px;
+}
+
+.reply-last {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+    margin-left: 35px;
+    position: absolute;
+    margin-top: 94px;
+
+}
