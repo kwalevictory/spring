@@ -11,11 +11,10 @@ const Post =({comment,user,post})=>{
                     <ProfileIcon user={post}/>
 					<div className="timeline-tag">
 						<h3>{post.name} &nbsp;</h3>
-						<span>
-							is with 
-							<h3>&nbsp;Jemimah Best</h3>
+						<span> 
+							<h3>&nbsp;</h3>
 						</span>
-						<time>23 minutes ago</time>
+						<time>1h</time>
 					</div>
 				</div>
 			</div>
@@ -63,8 +62,8 @@ const Post =({comment,user,post})=>{
 						<span><i className=" fa fa-thumbs-up"></i></span><span>3</span>
 					</li>
 					<li>
-						<Link to="/comment">
-							<span> icon</span>
+						<Link to={`/comment/${post.id}/${post.uid}`}>
+							<span><i class="fa fa-heart-o" aria-hidden="true"></i></span>
 							<span>10</span>
 						</Link>
 					</li>

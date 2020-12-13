@@ -35,6 +35,9 @@
 	height: 100%;
 	border-radius: 15px;
 }
+.preview .preview-inner .carousel .item .status-icon{
+
+}
 .preview .preview-inner .carousel .item h4{
 	position: absolute;
 	bottom: 22px;
@@ -54,4 +57,29 @@
 	margin-left: 6px;
     padding-bottom: 15px;
     margin-top: -15px;
+}
+.preview-inner .carousel .items{
+	min-width: 80px !important;
+	margin-right: 20px !important;
+}
+.preview-inner .carousel .items span{
+	position: absolute;
+	right: -15px;
+	width: 30px;
+	height: 30px;
+	top: 70%;
+	z-index: 12;
+	border-radius: 50%;
+	transform: translateY(-50%);
+	background-color: #02d480;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+}
+.preview-inner .carousel .items span:active{
+	opacity: 0.9;
+}
+.preview-inner .carousel .items span i{
+	font-size: 14px;
+	color: #ffffff;
 }

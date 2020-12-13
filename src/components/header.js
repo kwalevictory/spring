@@ -3,6 +3,7 @@ import "./header.css"
 import Context from "./context";
 import {withRouter} from "react-router-dom"
 
+
 const Header = ({history})=>{
     const {getImages,logOut} = useContext(Context)
     const navigate = (file)=>{
@@ -36,7 +37,7 @@ const Header = ({history})=>{
 
         </div>
     
-            <ul>
+            {/* <ul>
                 <li>
                     <a href="https://www.google.com" >
                         <div className="list-icons">
@@ -83,9 +84,11 @@ const Header = ({history})=>{
                     </a>
 
                 </li>
-            </ul>
+            </ul> */}
 
         </div>
+        
+        
        
     )
 }

@@ -26,6 +26,7 @@ class EditProfile extends Component{
         profileUpload(event,this, 'bannerPic')
     }
     render(){
+        let numberOfFriends =0;
         if(this.context.state.user && this.context.state.profile)
         return(
             <Layout>
@@ -43,7 +44,7 @@ class EditProfile extends Component{
                     </div>
                 </div> 
                 <div className="edit-profile-details">
-                    <h3>{this.context.state.userData.firstname + " " + this.context.state.userData.lastname}</h3>
+                    <h3>{this.context.state.userData?this.context.state.userData.firstname + " " + this.context.state.userData.lastname:''}</h3>
                     <div className="edit-profile">
                         <span>Edit Your Profile</span>
                         <span>Chat icon</span>
@@ -52,6 +53,7 @@ class EditProfile extends Component{
                     <div className="eprofile">
                         <div className="edit-profile-left">
                             <ul>
+                                <li><span>icon</span><span>location</span></li>
                                 <li><span>icon</span><span>{this.context.state.profile.nationality}</span></li>
                                 <li><span>icon</span><span>{this.context.state.profile.city}</span></li>
                                 <li><span>icon</span><span>{this.context.state.user.email}</span></li>
@@ -85,19 +87,30 @@ class EditProfile extends Component{
                 <h4>Friends Photos</h4>
                 <div className="friends-photos">
                     {
+                        this.context.state.userData&&
                         this.context.state.userData.friends.length>0&&
-                            this.context.state.userData.friends.map((friend,i)=>(
-                                <div className="friend">
-                                <div className="friend-image">
-                                    <img src={friend.photoURL !== null?friend.photoURL:good} alt=""/>
-                                </div>
-                                <h4>{`${friend.firstname} ${friend.lastname}`}</h4>
-                            </div>
-                            ))
+                            this.context.state.userData.friends.map((friend,i)=>{
+                                if(friend.status)
+                                numberOfFriends +=1
+                                return(
+                                <>
+                                    {
+                                        friend.status?
+                                        <div className="friend">
+                                        <div className="friend-image">
+                                            <img src={friend.photoURL !== null?friend.photoURL:good} alt=""/>
+                                        </div>
+                                        <h4>{`${friend.firstname} ${friend.lastname}`}</h4>
+                                        </div>
+                                        :
+                                        ''
+                                    }
+                                </>
+                            )})
                     }
                 </div>
                 <div className="friends-footer">
-                    <p>{this.context.state.userData.friends.length} {this.context.state.userData.friends.length===1?'friend':'friends'}</p>
+                    <p>{numberOfFriends} {numberOfFriends===1?'friend':'friends'}</p>
                     <Link to="/friends">See All friends</Link>
                 </div>
             </div>

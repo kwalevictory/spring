@@ -2,9 +2,11 @@ import React, {Component} from "react"
 import "../css/text.css"
 import Layout from "../components/layout"
 import firebase from "../database/users"
+import Context from "./context"
 
 
 class Text extends Component {
+    static contextType=Context
     constructor(props){
         super(props);
         this.state ={
@@ -22,7 +24,13 @@ class Text extends Component {
         e.preventDefault();
           firebase.firestore().collection('text').add(this.state)
          .then(snap=>{
-             alert('if successfuly writting')
+             const data={
+                 userId:this.context.state.user.uid, 
+                 friendId:this.props.friendId,
+                 comment:this.state.commentbox,
+                 postId:this.props.postId,
+             }
+             this.context.notification(data)
 
          })
          .catch(error=>{
@@ -33,7 +41,7 @@ class Text extends Component {
 
     render(){
         return(
-            <Layout>
+            
                 
                 <div className="text-box">
                     <form onSubmit={this.onSubmit}>
@@ -44,7 +52,7 @@ class Text extends Component {
                     </form>
 
                 </div>
-            </Layout>
+            
         )
     }
 }

@@ -6,8 +6,9 @@
 	margin: 0 auto;
 }
 .timeline .timeline-head{
-    display: grid;
-    grid-auto-flow: column;
+    /*display: grid;
+	grid-auto-flow: column;*/
+	display: flex;
 }
 .timeline .timeline-head .timeline-img img{
 	width: 100px;
@@ -98,12 +99,13 @@
 	display: flex;
 	align-content: center;
 	justify-content: center;
-	background: #dadada;
-	padding: 15px 30px;
+	/*background: #dadada;*/
+	/*padding: 15px 30px;*/
 	font-size:1rem;
-	border-radius: 60px;
+	/*border-radius: 60px;*/
 }
 .timeline-footer ul li span i{
-    font-size: 22px;
+	font-size: 27px;
     margin-right: 7px;
+    color: darkgray;
 }

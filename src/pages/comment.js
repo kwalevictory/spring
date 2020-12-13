@@ -2,10 +2,23 @@ import React, {Component} from "react"
 import "../css/comment.css"
 import Layout from "../components/layout"
 import good from "../images/good.jpg"
+import {withRouter} from "react-router-dom"
+import Text from "../components/texts"
 
 
 
 class Comment extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+            friendId:"",
+            postId:"",
+        }
+    }
+    componentDidMount(){
+        const url=this.props.location.pathname.split("/")
+        this.setState({friendId:url[3],postId:url[2]})
+    }
     render(){
         return(
             <Layout>
@@ -61,9 +74,10 @@ class Comment extends Component {
                     </div>    
 
                 </div>
+                <Text friendId={this.state.friendId} postId={this.state.postId}/>
                 
             </Layout>
         )
     }
 }
-export default Comment;
+export default withRouter(Comment);

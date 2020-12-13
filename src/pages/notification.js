@@ -12,28 +12,8 @@ class Notification extends Component {
             image: true,
         }
     }
-    handleshowNotification = (event) =>{
-        this.showNntification.bind(this);
-
-    }
-    notification =(event) =>{
-        event.preventDefualt();
-        Notification.requestPermission();
-        if(Permissions === "granted"){
-            Notification('');
-        }
-        firebase.firestore().collection('notification').add(this.state)
-        .then(snap=>{
-            alert('he must be true')
-
-        })
-        .catch(error=>{
-            alert(error)
-        })
-
-          
-    }
     
+
 
 
 
@@ -51,7 +31,7 @@ class Notification extends Component {
                         <span>mentioned</span>
                         <p>you in a comment</p>
                         <div className="notify-date">
-                            <p>2 hours ago</p>
+                            <p>Dec 4th - 9:44pm</p>
 
                         </div>
 
@@ -66,7 +46,7 @@ class Notification extends Component {
                         <span>likes your</span>
                         <p>comment:.Very nice</p>
                         <div className="notify-date">
-                            <p>aug 26, 2020, 01:12 pm</p>
+                            <p>Aug 7th - 6:21pm</p>
 
                         </div>
 
@@ -80,7 +60,7 @@ class Notification extends Component {
                         <span>also</span>
                         <p>commented on her photo</p>
                         <div className="notify-date">
-                            <p>2 day ago</p>
+                            <p>Jul 13th - 9:05pm</p>
                         </div>
                     </div>
                 </div>

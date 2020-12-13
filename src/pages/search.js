@@ -3,6 +3,12 @@ import "../css/search.css"
 import Layout from "../components/layout" 
 
 class Search extends Component {
+    constructor(props) {
+        super(props)
+        this.state ={
+            
+        }
+    }
     render(){
         return(
             <Layout>

@@ -6,6 +6,15 @@ import good from "../images/good.jpg"
 
 
 class Newsupdate extends Component {
+    componentDidMount() {
+        fetch('http://newsapi.org/v2/everything?q=everything&from=2020-10-01&sortBy=publishedAt&apiKey=4b551f364d824e558cf327ba91353d39',{mode: 'no-cors' })
+        .then(res=>res.json())
+        .then(res=>{
+            console.log(res)
+        })
+    }
+    
+
     render(){
         return(
             <Layout>

@@ -1,18 +1,26 @@
 import  {useMemo, useReducer, useEffect} from "react"
 import {auth,firestore,storage} from "../database/users"
+import firebase from "firebase/app"
+import comment from "../pages/comment"
 const GlobalState = ()=>{
     //const [images,setImages]= useState([])
+    const serverTime = firebase.firestore.FieldValue.serverTimestamp()
 
     const initialState = {
         images:[],
         files:[],
         user:null,
         users:[],
+        requests:[],
         userData:null,
         profile:null,
         posts:[],
         initializing:true,
-        errMsg:''
+        errMsg:'',
+        chats:[],
+        jobs:[]
+
+        
     }
 
     const reducers = (prevState, action)=>{
@@ -33,6 +41,12 @@ const GlobalState = ()=>{
                     ...prevState,
                     userData:action.payload.userData
                 }
+                
+            case "SET_JOBS":
+                return{
+                    ...prevState,
+                    jobs:action.payload.jobs
+                }
             case "SET_PROFILE":
                 return{
                     ...prevState,
@@ -43,6 +57,11 @@ const GlobalState = ()=>{
                     ...prevState,
                     posts:action.payload.posts
                 }
+            case "GET_CHATS":
+                return{
+                    ...prevState,
+                    chats:action.payload.chats
+                }
             case "SET_APP_STATE":
                 return{
                     ...prevState,
@@ -52,6 +71,11 @@ const GlobalState = ()=>{
                 return{
                     ...prevState,
                     users:action.payload.users
+                }
+            case "GET_REQUESTS":
+                return{
+                    ...prevState,
+                    requests:action.payload.requests
                 }
             case "SET_ERROR":
                 return{
@@ -78,11 +102,24 @@ const GlobalState = ()=>{
         auth.onAuthStateChanged((user)=>{
             if(user){
                 dispatch({type:"SET_USER", payload:{user:user}})
-                firestore.collection('users').doc(user.uid).onSnapshot((snap)=>{
-                    dispatch({type:"SET_USERDATA", payload:{userData:snap.data()}})
+                firestore.collection('users').doc(user.uid).onSnapshot((data)=>{
+                    firestore.collection('users').doc(user.uid).collection('friends').onSnapshot((snap)=>{
+                        const friends = []
+                        snap.forEach(friend=>friends.push({...friend.data(),id:friend.id}))
+                        firestore.collection('users').doc(user.uid).collection('deleted').onSnapshot((deleted)=>{
+                            const deletes = []
+                            deleted.forEach(friend=>deletes.push({...friend.data(),id:friend.id}))
+                            dispatch({type:"SET_USERDATA", payload:{userData:{...data.data(), id:data.id, friends:[...friends], deleted:[...deletes]}}})
+                            
+                        })
+                        
+                    })
+
                 })
+
                 getProfile(user.uid)
                 getPosts();
+                
             }
             else{
                 dispatch({type:"SET_USER", payload:{user:user}})
@@ -118,8 +155,6 @@ const GlobalState = ()=>{
                 .catch(error=>{
                     dispatch({type:'SET_ERROR', payload:{errMsg:error.message}})
                     return true;
-       
-                    console.log(error)
                 })
            },
            register:(email,password,firstname,lastname,props)=>{
@@ -134,7 +169,7 @@ const GlobalState = ()=>{
                 })
                 .then(()=>{
                     firestore.collection('users').doc(rep.user.uid).onSnapshot((snap)=>{
-                        dispatch({type:"SET_USERDATA", payload:{userData:snap.data()}})
+                        dispatch({type:"SET_USERDATA", payload:{userData:{...snap.data(),id:snap.id}}})
                         props.history.push('/profile')
                     })
                 })
@@ -165,26 +200,64 @@ const GlobalState = ()=>{
                 if(state.userData.deleted.length>0)
                 deleted.push(...state.userData.deleted)
                 deleted.push(user.id)
-                firestore.collection('users').doc(state.user.uid).update({
+                firestore.collection('users').doc(state.user.uid).collection('deleted').doc(user.id).set({
                     deleted:deleted
                 })
                 dispatch({type:"GET_USERS", payload:{users:state.users}})
            },
            sendFriendRequest:(user)=>{
-            let friends = []
-            if(state.userData.friends.length>0)
-            friends.push(...state.userData.friends)
-            friends.push({...user, accepted:false})
-            firestore.collection('users').doc(state.user.uid).update({
-                friends:friends
+            // let friends = []
+            const time = new Date()
+            // if(state.userData.friends.length>0)
+            // friends.push(...state.userData.friends)
+            // friends.push({...user, accepted:false, createdAt:time})
+            firestore.collection('users').doc(state.user.uid).collection('friends').doc(user.id).set({
+               ...user,
+                status:false,
+                createdAt:time,
+                
+
+            })
+            firestore.collection('requests').doc(user.id+state.user.uid).set({
+                ...state.userData,
+                id:user.id,
+                createdAt:time
             })
            },
+           confirmRequest:(user)=>{
+            const time = new Date()
+            firestore.collection('requests').doc(user.id).delete()
+            const id = user.id.split(state.user.uid)[1]
+            firestore.collection('users').doc(id).collection('friends').doc(state.user.uid).update({
+                 status:true,
+                 createdAt:time,
+ 
+             })
+             firestore.collection('users').doc(state.user.uid).collection('friends').doc(id).set({
+                ...user,
+                 status:true,
+                 createdAt:time,
+                 
+ 
+             })
+           },
+           getFriendsRequest:()=>{
+                firestore.collection('requests').where('id', '==', state.user.uid).onSnapshot(requests=>{
+                    const req = []
+                    requests.forEach(request=>req.push({...request.data(), id:request.id}))
+                    dispatch({type:"GET_REQUESTS", payload:{requests:req}})
+                })
+           },
+           deleteRequest:(request)=>{
+            firestore.collection('requests').doc(request.id).delete()
+            const id = request.id.split(state.user.uid)[1]
+            firestore.collection('users').doc(id).collection('friends').doc(state.user.uid).delete()
+           },
            cancelFriendRequest:(user)=>{
-            const index = state.userData.friends.findIndex(item=>item.id === user.id)
-            state.userData.friends.splice(index,1)
-            firestore.collection('users').doc(state.user.uid).update({
-                friends:state.userData.friends
-            })
+            // const index = state.userData.friends.findIndex(item=>item.id === user.id)
+            // state.userData.friends.splice(index,1)
+            firestore.collection('users').doc(state.user.uid).collection('friends').doc(user.id).delete()
+            firestore.collection('requests').doc(user.id+state.user.uid).delete()
            },
            profileUpload:(event,object,name)=>{
             let image = event.target.files[0];
@@ -214,6 +287,79 @@ const GlobalState = ()=>{
                .catch(err=>console.log(err))
             }
            },
+           
+        //    confirmRequest:(index)=>{
+        //        firestore.collection('users').doc(state.user.uid).get()
+        //        .then((docs)=>{
+        //             docs.
+        //        })
+        //    },
+        notification:()=>{
+            firestore.collection('notification').get
+            .then(snap=>{
+                
+            })
+
+        },
+    
+        
+        notification:(data)=>{
+        console.log(data)
+            firestore.collection('posts').doc(data.postId).collection('comments').add({
+                userId:data.userId,
+                friendId:data.friendId,
+                comment:data.comment,
+            })
+
+        },
+        
+        saveChat:async(message, receiverId)=>{
+            firestore.collection('chats').add({
+               senderId:state.user.uid,
+               message: message,
+               receiverId:receiverId,
+               createdAt: new Date()
+            })
+        },
+        getChats:async(receiverId)=>{
+               
+            firestore.collection('chats').where('receiverId', '==', receiverId).where('senderId', '==', state.user.uid).orderBy('createdAt', 'asc').onSnapshot(chats=>{  
+                let req = [] 
+                chats.forEach(chat=>req.push({...chat.data(), id:chat.id}))
+                dispatch({type:"GET_CHATS", payload:{chats:req}})
+                firestore.collection('chats').where('receiverId', '==', state.user.uid).where('senderId', '==', receiverId).onSnapshot(chats=>{
+                    let sechats = []    
+                    chats.forEach(chat=>sechats.push({...chat.data(), id:chat.id}))
+                    dispatch({type:"GET_CHATS", payload:{chats:sechats.concat(req)}})
+                })
+            })
+
+            
+       },
+       getHistoryChat:async()=>{
+        firestore.collection('chats').where('senderId', '==', state.user.uid).get()
+        .then(docs=>{
+            let results=[]
+            docs.forEach(doc=>results.push(doc.data()))
+            firestore.collection('chats').where('receiverId', '==', state.user.uid).get()
+            .then(resul=>{
+                let step=[]
+                resul.forEach(result=>step.push(result.data())) 
+                console.log(step.concat(results))
+            })
+        })
+       },
+       jobPlacement:()=>{
+           firestore.collection('job-placement').get()
+           .then(docs=>{
+               let place=[]
+               docs.forEach(doc=>place.push(doc.data()))
+               dispatch({type:"SET_JOBS", payload:{jobs:place}})
+               
+
+           })
+           
+       },
            state,
             images:state.images,
         }),[state])

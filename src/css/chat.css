@@ -56,86 +56,48 @@
 	margin-top: -52px;
 
 }
-.active-user> img{
-	width: 51px;
-    height: 51px;
-    border-radius: 33px;
-    margin-top: 2px;
-	margin-left: 14px;
-
-}
-.active-user{
-	display: flex;
-}
-.active-user p {
-	margin-left: 75px;
-    position: absolute;
-    margin-top: 12px;
-}
-.active-user h4{
-	position: absolute;
-    margin-left: 265px;
-    margin-top: 12px;
-}
-.chat-history{
-	border-bottom: 1px solid #dadada;
-	margin-left: -9px;
-	margin-right: -11px;
-	padding: 9px;
-
-}
-.previewss button{
-	margin-left: 103px;
-
-}
-.chat-time{
+.messages-history h2{
 	text-align: center;
-    margin-top: 12px;
+    font-size: 18px;
+    color: darkgray;
 }
-.send-messages{
-	position: absolute;
-    right: 12px;
-    background: antiquewhite;
-    padding: 7px;
-    border-radius: 12px;
-    margin-top: 12px;
-}
-.recieveimage> img{
+.images-history>img{
 	width: 51px;
     height: 51px;
-    border-radius: 33px;
-    margin-top: 59px;
-    position: absolute;
+	border-radius: 30px;
+	margin-left: -1px;
+
 }
-.recieve-message{
-	position: absolute;
-    margin-top: 68px;
-    left: 74px;
-    background: blue;
-    padding: 9px;
-    border-radius: 20px;
+.messagess-history{
+	margin-top: 12px;
+
 }
-.draw-line{
-	border-bottom: 1px solid #dadada;
-    margin-left: -13px;
-    margin-top: 142px;
-	width: 363px;
-	position: absolute;
+.images-history h2{
+	margin-top: -57px;
+	margin-left: 63px;
+	font-size: 16px;
 }
-.box-mess textarea{
-	position: absolute;
-    margin-top: 7px;
-    margin-left: 29px;
-    width: 269px;
-    height: 31px;
-    border-radius: 12px;
-    outline: 0;
+.text-history{
+	margin-left: 64px;
+    margin-top: 1px;
 }
-.box-mess button{
-	position: absolute;
-    right: 12px;
-    margin-top: 12px;
+.text-history p{
+	color: cadetblue;
+    font-size: 15px;
 }
+.online-time{
+	margin-top: -41px;
+    margin-left: 286px;
+    font-size: 13px;
+    color: cadetblue;
+}
+
+
+
+
+
+
+
 
 
 

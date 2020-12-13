@@ -1,0 +1,114 @@
+.handlers>img{
+    width: 51px;
+    height: 51px;
+    border-radius: 33px;
+}
+.users-name{
+    margin-left: 78px;
+    margin-top: -44px;
+}
+.users-online{
+    margin-top: -25px;
+    margin-left: 264px;
+}
+.draw-line{
+    border-bottom: 2px solid #dadada;
+    margin-top: 24px;
+
+}
+.chat-date{
+    text-align: center;
+    margin-top: 12px;
+
+}
+.chat-date button{
+    border: none;
+    width: 90px;
+    height: 24px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 15px;
+    z-index: 0;
+}
+.sending-message{
+    background: beige;
+    margin-top: 15px;
+    width: 162px;
+    height: 42px;
+    padding: 8px;
+    border-radius: 13px;
+    margin-left: 3px;
+}
+.sending-message time{
+    margin-left: 98px;
+    color: lightblue;
+    font-size: 17px;
+}
+.sending-message p{
+    color: black;
+    font-size: 17px;
+}
+.receiving-message{
+    margin-top: 15px;
+    margin-left: 150px;
+    background: skyblue;
+    width: 176px;
+    height: 47px;
+    padding: -40px;
+    padding: 4px;
+    border-radius: 10px;
+}
+.receiving-message time{
+    margin-left: 110px;
+    color: aliceblue;
+    font-size: 17px;
+}
+.receiving-message p{
+    font-size: 17px;
+    color: black;
+}
+.type-box{
+    /* margin-top: 361px; */
+    margin-left: -8px;
+}
+.type-box textarea{
+    width: 331px;
+    height: 11px;
+    outline: none;
+    border: none;
+    padding: 13px;
+    background-color: aliceblue;
+}
+.sending{
+    position: absolute;
+    margin-top: -34px;
+    margin-left: 314px;
+    border: none;
+    color: blue;
+    font-size: 26px;
+    background: none;
+    cursor: pointer;
+}
+.receiving-message span,
+.sending-message span{
+    float: right;
+    font-size: 14px;
+}
+.sending-typest {
+    position: absolute;
+    margin-top: -32px;
+    margin-left: 308px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+.sending-typest i{
+    font-size: 24px;
+    color: lightgreen;
+}
+.drawing-lining{
+    border-bottom: 2px solid #dadada;
+
+}
+

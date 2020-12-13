@@ -12,7 +12,6 @@ import Post from "../pages/post";
  import Chat from "../pages/chat"
 import Jobplacement from "../pages/jobplacement";
 import Notification from "../pages/notification";
-import Text from "../pages/text"
 import Search from "../pages/search";
 import CreatePost from "../pages/createPost";
 import Comment from "../pages/comment";
@@ -31,23 +30,21 @@ import Login from "../pages/login"
 import Adverts from "../pages/adverts"
 import Viewjob from "../pages/viewjob";
 import Splash from "../pages/splash";
+import Chathandle from "../pages/chathandle";
+import PublicRoute from "./publicRoute";
+import AuthRoute from "./authRoute";
 const Auth = ()=>{
     const {state} = useContext(Context)
-    console.log(state)
     return(
         <>
         {
           state.initializing?
             <Splash/>
             :
-            state.user?
             <>
-            <Route path="/viewjob">
-              <Viewjob/>
-            </Route>
-            <Route path="/adverts">
-              <Adverts/>
-            </Route>
+            <AuthRoute  Component={Chathandle} path="/chathandle"/>
+            <AuthRoute Component={Viewjob} path="/viewjob"/>
+            <AuthRoute Component={Adverts} path="/adverts"/>
             <Route path="/taguser">
               <Taguser/>
             </Route>
@@ -87,9 +84,6 @@ const Auth = ()=>{
             <Route path="/search">
               <Search/>
             </Route>
-            <Route path="/text">
-              <Text/>
-            </Route>
             <Route path="/notification">
               <Notification/>
             </Route>
@@ -99,12 +93,8 @@ const Auth = ()=>{
             <Route path="/chat">
               <Chat/>
             </Route> 
-            <Route path="/post/:user?">
-              <Post/>
-            </Route>
-            <Route path="/friends">
-              <Friends/>
-            </Route>
+            <AuthRoute Component={Post} path="/post/:user"/>
+            <AuthRoute Component={Friends} path="/friends"/>
             <Route path="/friend-request">
               <FriendRequest />
             </Route>
@@ -117,11 +107,9 @@ const Auth = ()=>{
             <Route path="/dashboard">
               <Dashboard />
             </Route>
+            <PublicRoute path="/" exact Component={Login}/>
         </>
-        :
-        <Route path="/">
-            <Login />
-        </Route>
+        
         }
         </>
     )

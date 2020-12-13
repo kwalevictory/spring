@@ -15,13 +15,12 @@
 
 }
 .relationship {
-	margin-top: -10px;
-    /* position: absolute; */
+	margin-top: -5px;
     color: forestgreen;
     font-size: 14px;	
 }
 .friendship{
-	/* position: absolute; */
+	
 	/* margin-top: 24px; */
 	margin-left: 12px;
 
@@ -35,10 +34,9 @@
 	width: 90px;
 	border-radius: 60px;
 	margin-left: 12px;
-
+	margin-top: 12px;
 }
 .requestimage{
-	/* position: absolute; */
     /* margin-top: 59px; */
 }
 .completedimage> img{
@@ -46,6 +44,9 @@
 	width: 40px;
 	border-radius: 50%;
 
+}
+.completedimage{
+	margin-top: 5px;
 }
 .completed {
 	/* position: absolute; */
@@ -67,8 +68,8 @@
     font-size: 15px;
 }
 .confirm{
-	/* position: absolute; */
-    /* margin-top: 205px; */
+	margin-top: 14px;
+
 }
 .confirm button{
 	margin-left: 12px;
@@ -82,9 +83,9 @@
     font-size: 15px;	
 }
 .delete{
-	/* position: absolute; */
-    /* margin-top: 205px; */
-    margin-left: 104px;
+	margin-left: 104px;
+	margin-top: -25px;
+
 }
 .delete button{
 	width: 82px;
@@ -109,8 +110,7 @@
 
 }
 .peoples{
-	margin-top: 10px;
-    position: absolute;
+	margin-top: 4px;
     font-size: 15px;
     color: forestgreen;
 		
@@ -126,16 +126,16 @@
 }
 .action-btns{
 	display: flex;
-	width: 60%;
+	width: 51%;
 	justify-content: space-between;
+	margin-top: -12px;
 }
 .addname {
-	/* position: absolute; */
-    margin-top: 13px;
+	margin-top: -10px;
+
 }
 .addimage{
-	/* position: absolute; */
-    margin-top: 24px;
+    margin-top: 6px;
 }
 .mutualimage> img{
 	height: 40px;
@@ -143,8 +143,7 @@
 	border-radius: 50%;
 }
 .addmutual {
-	/* position: absolute; */
-    margin-top: 15px;
+    margin-top: 6px;
 }
 .mutualimage{
 	margin-left: 2px;

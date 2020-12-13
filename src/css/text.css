@@ -1,6 +1,7 @@
 .text-box{
     width: 100%;
     position: relative;
+    margin-top: 160px;
 
 }
 .text-box textarea {

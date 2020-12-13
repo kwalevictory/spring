@@ -6,9 +6,12 @@ const Status = ()=>{
         <div className="preview">
 		<div className="preview-inner">
 			<div className="carousel">
-				<div className="item">
+				<div className="item items">
 					<img src={good} alt=""/>
-					<h4>Uwa Best</h4>
+					<span>
+						<i className="fa fa-plus"></i>
+					</span>
+					
 				</div>
 				<div className="item">
 					<img src={good} alt=""/>
@@ -35,7 +38,7 @@ const Status = ()=>{
 					<h4>Uwa Best</h4>
 				</div> 
 			</div>
-			<h5>Recent Uploaded</h5>
+			<h5>VIVE</h5>
 		</div>
 	</div>
     )

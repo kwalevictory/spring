@@ -12,6 +12,7 @@ class FriendRequest extends Component {
 
 	componentDidMount(){
 		this.context.getUsers();
+		this.context.getFriendsRequest()
 	}
 
     render(){
@@ -24,39 +25,60 @@ class FriendRequest extends Component {
 						<h4>5</h4>
 
 					</div>
-					<div className="friendship">
-						<div className="friendships">
-							<p>Chisom Nwafor</p>
-							<div className="number">
-								<p>1w</p>
+					{
+						this.context.state.requests.length>0&&
+						this.context.state.requests.map((friend,i)=>{
+							// const date = new Date(friend.createdAt.seconds*1000).getDate()
+							if(!friend.accepted)
+							return(
+								<div key={i}>
+									<div className="friendship">
+										<div className="friendships">
+											<p>{friend.firstname + " "+ friend.lastname}</p>
+											<div className="number">
+											{/* <p>{date}</p> */}
 
-							</div>
+											</div>
 
-						</div>
+										</div>
 
-					</div>
-					<div className="requestimage">
-						<img src={good} alt=""/>
+									</div>
+									<div className="requestimage">
+										<img src={good} alt=""/>
 
-					</div>
-					<div className="completed">
-						<div className="completedimage">
-							<img src={good} alt=""/>
-							<div className="mutual">
-								<p>10 mutual friends</p>
+									</div>
+									<div className="completed">
+										<div className="completedimage">
+											<img src={good} alt=""/>
+											<div className="mutual">
+												<p>10 mutual friends</p>
 
-							</div>
+											</div>
 
-						</div>
+										</div>
 
-					</div>
-					<div className="confirm">
-						<button>Confirm</button>
-					</div>
-					<div className="delete">
-						<button>Delete</button>
+									</div>
+									
+									
+			
+									<div className="confirm">
+										<button onClick={()=>this.context.confirmRequest(friend)}>Confirm</button>
+									</div>
+									<div className="delete">
+										<button onClick={()=>this.context.deleteRequest(friend)}>Delete</button>
 
-					</div>
+									</div>
+			
+								</div>
+								
+							
+							
+							)
+							else
+							return ''
+						})
+					}
+
 
 				</div>
 				<div className="addfrinend">
@@ -67,10 +89,13 @@ class FriendRequest extends Component {
 							<h4>Add People You Many Known</h4>
 						</div>
 						{
+							this.context.state.userData&&
 							this.context.state.users.map((user, i)=>{
+								const confirmedFriends = this.context.state.userData.friends.filter(item=>item.status===true && item.id === user.id)
 								const friend = this.context.state.userData.friends.filter(item=>item.id === user.id)
 								const deleted = this.context.state.userData.deleted.filter(item=>item === user.id);
-								if(!deleted.length >0)
+								
+								if(!deleted.length >0 && confirmedFriends.length <1)
 								return(
 									<div className="add-suggested-friend" key={i}>
 										<div className="addname">

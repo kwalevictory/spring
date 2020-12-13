@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {PostLayout as Layout} from "../components/layout";
 import {withRouter, Link} from "react-router-dom"
 import ProfileIcon from "../components/profileicon";
@@ -9,11 +9,13 @@ import Context from "../components/context";
 
 
 const Post = ({location})=>{
+    const [pops, setPops] = useState(false)
     const{state}=useContext(Context)
     return(
         <Layout>
+            <div className="timelines">
             <div className="post">
-                <div className="post-inner">
+                {/* <div className="post-inner">
                     <ProfileIcon/>
                     <form>
                         <div>What's on your mind ....</div>
@@ -26,16 +28,26 @@ const Post = ({location})=>{
                         <li><Link to="/live"><span className="fa fa-video-camera"></span> Live Video</Link></li>
                         <li><span className="fa-video-camera"></span>video from users</li>
                     </ul>
-                </div>
+                </div> */}
             </div>
             <Status/>
             {
                 state.posts?
                 state.posts.map(((post, i)=>{
-                   return <Posts key={i} post={post.data()} user={state.user}/>
+                   return <Posts key={i} post={{...post.data(), id:post.id}} user={state.user}/>
                 }))
                 :''
             }
+            {
+                pops&&
+                <div className="pops">
+
+                </div>
+            }
+            <button onClick={()=>setPops(!pops)} className="fab">
+                <i className="fa fa-plus"></i>
+            </button>
+            </div>
         </Layout>
     );
 }
