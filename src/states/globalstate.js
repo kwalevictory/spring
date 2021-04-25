@@ -2,6 +2,8 @@ import  {useMemo, useReducer, useEffect} from "react"
 import {auth,firestore,storage} from "../database/users"
 import firebase from "firebase/app"
 import comment from "../pages/comment"
+import { getAuth, setAuth,clearAuth, profileUploads,getReplies, createPost, getPost, createJobs, createComments, updateUser, updateFriend, getComment,createNotifications, createChats,} from "./helper"
+import io from 'socket.io-client'
 const GlobalState = ()=>{
     //const [images,setImages]= useState([])
     const serverTime = firebase.firestore.FieldValue.serverTimestamp()
@@ -11,6 +13,8 @@ const GlobalState = ()=>{
         files:[],
         user:null,
         users:[],
+        friends:[],
+        messages:[],
         requests:[],
         userData:null,
         profile:null,
@@ -18,10 +22,16 @@ const GlobalState = ()=>{
         initializing:true,
         errMsg:'',
         chats:[],
-        jobs:[]
+        jobs:[],
+        comments:[],
+        replies:[],
+        notifications:[],
+        official:[]
+        
 
         
     }
+
 
     const reducers = (prevState, action)=>{
         switch(action.type){
@@ -36,12 +46,44 @@ const GlobalState = ()=>{
                     ...prevState,
                     user:action.payload.user
                 }
+            case "SET_MESSAGES":
+                return{
+                    ...prevState,
+                    messages:action.payload.messages
+                }
+                
+            case "SET_FRIENDS":
+                return{
+                    ...prevState,
+                    friends:action.payload.friends
+                }
+            case "GET_OFFICIAL":
+                return{
+                    ...prevState,
+                    user:action.payload.user
+                }
+                
+            case "SET_NOTIFICATIONS":
+                return{
+                    ...prevState,
+                    notifications:action.payload.notifications
+                }
             case "SET_USERDATA":
                 return{
                     ...prevState,
                     userData:action.payload.userData
                 }
                 
+            case "SET_COMMENTS":
+                return{
+                    ...prevState,
+                    comments:action.payload.comments
+                }
+            case "SET_REPLIES":
+                return{
+                    ...prevState,
+                    replies:action.payload.replies
+                }
             case "SET_JOBS":
                 return{
                     ...prevState,
@@ -72,6 +114,7 @@ const GlobalState = ()=>{
                     ...prevState,
                     users:action.payload.users
                 }
+                
             case "GET_REQUESTS":
                 return{
                     ...prevState,
@@ -88,44 +131,122 @@ const GlobalState = ()=>{
     }
     const [state, dispatch] = useReducer(reducers, initialState)
     //const [images,setImages]= useState([]uid
-    const getProfile=(uid)=>{
-        firestore.collection('profile').doc(uid).onSnapshot((snap=>{
-            dispatch({type:"SET_PROFILE", payload:{profile:snap.data()}})
-        }))
+
+    const getProfile=async(email)=>{
+        console.log(email,'email')
+        const response = await fetch(`/api/profile/${email}`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json'},
+          })
+          const res = await response.json()
+          if(res.status === 200){
+            dispatch({type:"SET_PROFILE", payload:{profile:{...res}}})
+          }
+          console.log(res, 'profile')
+          return res.status;
     }
+
     const getPosts = ()=>{
-        firestore.collection('posts').orderBy('createdAt', 'desc').onSnapshot(snap=>{
-            dispatch({type:"GET_POSTS", payload:{posts:snap.docs}})
+        getPost()
+        .then(res=>{
+            const posts = []
+            res.data.forEach(post=>{
+                
+               const image =  res.data.filter(d=>d.post_id === post.post_id)
+               posts.push({
+                   post:post.post,
+                   images:image,
+                   id:post.post_id
+               })
+            })
+           dispatch({type:"GET_POSTS", payload:{posts}})
         })
     }
+    
+
+
+    
+    
+    
     useEffect(()=>{
-        auth.onAuthStateChanged((user)=>{
-            if(user){
-                dispatch({type:"SET_USER", payload:{user:user}})
-                firestore.collection('users').doc(user.uid).onSnapshot((data)=>{
-                    firestore.collection('users').doc(user.uid).collection('friends').onSnapshot((snap)=>{
-                        const friends = []
-                        snap.forEach(friend=>friends.push({...friend.data(),id:friend.id}))
-                        firestore.collection('users').doc(user.uid).collection('deleted').onSnapshot((deleted)=>{
-                            const deletes = []
-                            deleted.forEach(friend=>deletes.push({...friend.data(),id:friend.id}))
-                            dispatch({type:"SET_USERDATA", payload:{userData:{...data.data(), id:data.id, friends:[...friends], deleted:[...deletes]}}})
-                            
-                        })
-                        
-                    })
+        const socket = io('http://localhost:3000', {
+            query:{
+                user:localStorage.getItem('@auth')
+            },
+            forceNew:true,
 
-                })
-
-                getProfile(user.uid)
-                getPosts();
-                
-            }
-            else{
-                dispatch({type:"SET_USER", payload:{user:user}})
-            }
-            dispatch({type:'SET_APP_STATE', payload:{initializing:false}})
         })
+    socket.on('posts', (resp)=>{
+        const res = JSON.parse(resp)
+        const posts = []
+        res.forEach(post=>{
+            
+           const image =  res.filter((d)=>{
+               if(d.id === post.id){
+                if(d.image)
+                    return d
+                   
+                   
+                //    if(d.image){
+                //        return d
+                //    }
+               }
+           })
+           posts.push({
+               post:post.post,
+               images:image,
+               id:post.id,
+               firstname:post.firstname,
+               lastname:post.lastname,
+               created_at:post.created_at
+           })
+        })
+        dispatch({type:"GET_POSTS", payload:{posts}})
+    })
+    
+    socket.on('comments',(resps)=>{
+        const comments = JSON.parse(resps)
+        dispatch({type:"SET_COMMENTS", payload:{comments}})
+    })
+
+
+    socket.on('friends',(resps)=>{
+        const friends = JSON.parse(resps)
+        dispatch({type:"SET_FRIENDS", payload:{friends}})
+    })
+    socket.on('messages',(resps)=>{
+        const messages = JSON.parse(resps)
+        dispatch({type:"SET_MESSAGES", payload:{messages}})
+    })
+
+
+    socket.on('notifications',(sees)=>{
+        const notifications = JSON.parse(sees)
+        dispatch({type:"SET_NOTIFICATIONS", payload:{notifications}})   
+    })
+    
+    socket.on('jobs', (resp)=>{
+        const jobs = JSON.parse(resp)
+        dispatch({type:"SET_JOBS", payload:{jobs}})
+    })
+    socket.on('users', (resp)=>{
+        const users = JSON.parse(resp)
+        dispatch({type:"GET_USERS", payload:{users:users}})
+    })
+
+            getAuth()
+            .then(user=>{
+                if(user){
+                    dispatch({type:"SET_USER", payload:{user:user}})
+                //     if(user.email !== undefined)
+                //    getProfile(user.email)
+                getPosts()
+                }
+                else{
+                    dispatch({type:"SET_USER", payload:{user:null}})
+                }
+                dispatch({type:'SET_APP_STATE', payload:{initializing:false}})
+            })
     },[])
 
     const context = useMemo(()=>({
@@ -143,56 +264,104 @@ const GlobalState = ()=>{
                 }
     
             },
-            login : (email,password,props)=>{
-                auth.signInWithEmailAndPassword(email, password)
-                .then(res=>{ 
-                   props.history.push('/post')
-                   dispatch({type:'SET_ERROR', payload:{errMsg:""}})
-                   return false
-       
-       
-                })
-                .catch(error=>{
-                    dispatch({type:'SET_ERROR', payload:{errMsg:error.message}})
-                    return true;
-                })
+            login : async(email,password)=>{
+                // setAuth(res)
+                const response = await fetch(`/api/login`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({user: {email:email,password:password}})
+                  })
+                  const res = await response.json()
+                  if(res.status === 200){
+                    setAuth(res)
+                    dispatch({type:"SET_USER", payload:{user:{...res}}})
+                  }
+                  return res;
            },
-           register:(email,password,firstname,lastname,props)=>{
-            auth.createUserWithEmailAndPassword(email, password)
-            .then(rep=>{
-                firestore.collection('users').doc(rep.user.uid).set({
-                    email,
-                    firstname,
-                    lastname,
-                    friends:[],
-                    deleted:[]
-                })
-                .then(()=>{
-                    firestore.collection('users').doc(rep.user.uid).onSnapshot((snap)=>{
-                        dispatch({type:"SET_USERDATA", payload:{userData:{...snap.data(),id:snap.id}}})
-                        props.history.push('/profile')
-                    })
-                })
-            })
-            .catch(error=>{
-                console.log(error)
-            })
+
+           
+
+       text:async(comment_box, post_id, type)=>{
+            const resps =  createComments(comment_box, state.user.id, post_id, type)
+            dispatch({type:"SET_COMMENTS", payload:{comments:[{comment:comment_box,user_id:state.user.id, replies:0, firstname:state.user.firstname, lastname:state.user.lastname, image:state.user.image}, ...state.comments]}})
+           
+       },
+       
+       notification:async(comment_box, post_id,	notification_item_id, type)=>{
+        const sees =  createNotifications(comment_box, state.user.id, post_id, notification_item_id, type)
+        dispatch({type:"SET_NOTIFICATIONS", payload:{notifications:[{notification:comment_box,user_id:state.user.id, firstname:state.user.firstname, lastname:state.user.lastname, image:state.user.image}, ...state.comments]}})
+       
+   },
+
+       
+       
+           register:async(email,password,firstname,lastname,props)=>{
+            const response = await fetch(`/api/register`, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({user: {email:email,password:password,firstname:firstname,lastname:lastname}})
+              })
+              const res = await response.json()
+              if(res.status === 200){
+                  
+                setAuth(res)
+                dispatch({type:"SET_USER", payload:{user:{...res}}})
+                props.history.push('/profile')
+              }
+            },
+            
+            jobPlacement:async(job_title,job_location,job_application_email,job_description)=>{
+                const jobs = {job_title:job_title,job_location:job_location,job_application_email:job_application_email,job_description:job_description}
+                const res =  createJobs(jobs, state.user.id)
+               // return res
+            //    if(res.status === 200){
+                   
+            //     //  setAuth(res)
+            //     //  dispatch({type:"SET_USER", payload:{user:{...res}}})
+            //      props.history.push('/viewjob')
+            //    }
+ 
+            // auth.createUserWithEmailAndPassword(email, password)
+            // .then(rep=>{
+            //     firestore.collection('users').doc(rep.user.uid).set({
+            //         email,
+            //         firstname,
+            //         lastname,
+            //         friends:[],
+            //         deleted:[]
+            //     })
+            //     .then(()=>{
+            //         firestore.collection('users').doc(rep.user.uid).onSnapshot((snap)=>{
+            //             dispatch({type:"SET_USERDATA", payload:{userData:{...snap.data(),id:snap.id}}})
+            //             props.history.push('/profile')
+            //         })
+            //     })
+            // })
+            // .catch(error=>{
+            //     console.log(error)
+            // })
+
+           },
+    
+
+            messager:async(message,receiver_id,)=>{
+                const res =  createChats(message,state.user.id,receiver_id)
+            
+
            },
            logOut:()=>{
-                auth.signOut()
+            clearAuth()
+            .then(()=>{
+                dispatch({type:"SET_USER", payload:{user:null}}) 
+            })
                 
            },
-           getUsers:()=>{
-            let users=[]
-            firestore.collection('users').orderBy('firstname', 'asc').get()
-            .then(docs=>{
-                docs.forEach(doc=>{
-                    if(doc.data().email !== state.user.email)
-                    users.push({id:doc.id, ...doc.data()})
-                    dispatch({type:"GET_USERS", payload:{users:users}})
-                })
-            })
+           updateUsers:async(status, friendId)=>{
+            await updateUser(status, state.user.id, friendId)
            },
+           updateFriends:(status, friendId)=>{
+            updateFriend(status, state.user.id, friendId)
+            },
            removeUser:(user)=>{
                 const index = state.users.findIndex(item=>item.id === user.id)
                 state.users.splice(index,1)
@@ -242,11 +411,11 @@ const GlobalState = ()=>{
              })
            },
            getFriendsRequest:()=>{
-                firestore.collection('requests').where('id', '==', state.user.uid).onSnapshot(requests=>{
-                    const req = []
-                    requests.forEach(request=>req.push({...request.data(), id:request.id}))
-                    dispatch({type:"GET_REQUESTS", payload:{requests:req}})
-                })
+                // firestore.collection('requests').where('id', '==', state.user.uid).onSnapshot(requests=>{
+                //     const req = []
+                //     requests.forEach(request=>req.push({...request.data(), id:request.id}))
+                //     dispatch({type:"GET_REQUESTS", payload:{requests:req}})
+                // })
            },
            deleteRequest:(request)=>{
             firestore.collection('requests').doc(request.id).delete()
@@ -260,31 +429,32 @@ const GlobalState = ()=>{
             firestore.collection('requests').doc(user.id+state.user.uid).delete()
            },
            profileUpload:(event,object,name)=>{
-            let image = event.target.files[0];
+            let image = event.target.files;
             let reader = new FileReader();
-            reader.readAsDataURL(image)
+            reader.readAsDataURL(image[0])
             reader.onload = (e)=>{
                object.setState({[name]:e.target.result})
-              const task =  storage.ref(name==='profilePic'?state.user.uid:'banner/'+state.user.uid).put(image)
-               task.on('state_changed',snap=>{
-                   const percent = Math.round(snap.bytesTransferred/snap.totalBytes) *100;
-                   console.log(percent)
-               })
-               task.then(()=>{
-                   storage.ref(name==='profilePic'?state.user.uid:'banner/'+state.user.uid).getDownloadURL()
-                   .then(url=>{
-                       if(name==='profilePic')
-                        {
-                            state.user.updateProfile({
-                                photoURL:url
-                            })
-                            firestore.collection('users').doc(state.user.uid).update({photoURL:url})
-                        }
-                      else
-                      firestore.collection('profile').doc(state.user.uid).update({bannerPic:url})
-                   })
-               })
-               .catch(err=>console.log(err))
+               profileUploads(image, state.user.id)
+            //   const task =  storage.ref(name==='profilePic'?state.user.uid:'banner/'+state.user.uid).put(image)
+            //    task.on('state_changed',snap=>{
+            //        const percent = Math.round(snap.bytesTransferred/snap.totalBytes) *100;
+            //        console.log(percent)
+            //    })
+            //    task.then(()=>{
+            //        storage.ref(name==='profilePic'?state.user.uid:'banner/'+state.user.uid).getDownloadURL()
+            //        .then(url=>{
+            //            if(name==='profilePic')
+            //             {
+            //                 state.user.updateProfile({
+            //                     photoURL:url
+            //                 })
+            //                 firestore.collection('users').doc(state.user.uid).update({photoURL:url})
+            //             }
+            //           else
+            //           firestore.collection('profile').doc(state.user.uid).update({bannerPic:url})
+            //        })
+            //    })
+            //    .catch(err=>console.log(err))
             }
            },
            
@@ -294,10 +464,11 @@ const GlobalState = ()=>{
         //             docs.
         //        })
         //    },
+
         notification:()=>{
             firestore.collection('notification').get
             .then(snap=>{
-                
+            
             })
 
         },
@@ -312,6 +483,8 @@ const GlobalState = ()=>{
             })
 
         },
+        
+
         
         saveChat:async(message, receiverId)=>{
             firestore.collection('chats').add({
@@ -349,17 +522,56 @@ const GlobalState = ()=>{
             })
         })
        },
-       jobPlacement:()=>{
-           firestore.collection('job-placement').get()
+        newPost :async(post)=>{
+          return  createPost(post, state.user.id, state.files)
+          .then(res=>res)
+        },
+        comments : async(id)=>{
+            getComment(id)
+            .then(resn=>{
+                // const comments = []
+                // resn.data.forEach((res,i)=>{
+                //     if(res.parent_id === 0){
+                //         const replies =  resn.data.filter(ref=>(ref.id === res.parent_id && ref.parent_id === res.parent_id ))
+                //         comments.push({
+                //             ...res,
+                //             replies
+                //         })
+                //     }
+
+                // })
+               dispatch({type:"SET_COMMENTS", payload:{comments:resn.data}})
+            })
+        },
+        replies : async(postId, comment_id)=>{
+            getReplies(postId, comment_id)
+            .then(resn=>{
+               dispatch({type:"SET_REPLIES", payload:{replies:resn.data}})
+            })
+        },
+    /*comments:()=>{
+           firestore.collection('comments').get()
            .then(docs=>{
-               let place=[]
-               docs.forEach(doc=>place.push(doc.data()))
-               dispatch({type:"SET_JOBS", payload:{jobs:place}})
+               let teach=[]
+               docs.forEach(doc=>teach.push(doc.dat()))
+               dispatch({type:"SET_COMMENTS", payload:{comments:teach}})
+
+               
+           })
+
+       },*/
+
+    //    jobPlacement:()=>{
+    //        firestore.collection('job-placement').get()
+    //        .then(docs=>{
+    //            let place=[]
+    //            docs.forEach(doc=>place.push(doc.data()))
+    //            dispatch({type:"SET_JOBS", payload:{jobs:place}})
                
 
-           })
+    //        })
            
-       },
+    //    },
            state,
             images:state.images,
         }),[state])

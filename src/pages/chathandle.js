@@ -21,34 +21,36 @@ class Chathandle extends Component{
     componentDidMount(){
         const id = this.props.location.pathname.split('/')[2]
         
-        this.context.getChats(id)
+        // this.context.getChats(id)
 
-        this.setState({receiverId:id})
+        this.setState({receiverId:Number(id)})
     }
     onSubmit =(e)=>{
         e.preventDefault()
-        this.context.saveChat(this.state.text, this.state.receiverId)
+        this.context.messager(this.state.text, this.state.receiverId)
         .then(()=>{
             this.setState({text:''})
         })
     }
     render(){
-        const friend = this.context.state.userData?this.context.state.userData.friends.filter(friend=>friend.id === this.state.receiverId):null
         
+		const messages = this.context.state.messages.filter(message=>(message.friend_id === this.state.receiverId || message.user_id === this.state.receiverId))
+        const friend = this.context.state.friends.filter(friend=>friend.id === this.state.receiverId)
+        console.log(this.context.state.messages)
         return(
             <Layout>
                 <div className="chat-handle">
                     <div className="handlers">
-                        <img src={friend?friend[0].photoURL:good} alt=""/>
+                        <img src={friend.length>0?friend[0].image?friend[0].image:good:good} alt=""/>
 
                     </div>
                 </div>
                 <div className="users-name">
-                    <p>{friend&&friend[0].firstname +' ' +friend[0].lastname}</p>
+                    <p>{friend.length>0&&friend[0].firstname +' ' +friend[0].lastname}</p>
 
                 </div>
                 <div className="users-online">
-                    <p>online</p>
+                    <p>{friend.length>0?friend[0].status?'online':'offline':''}</p>
 
                 </div>
                 <div className="draw-line">
@@ -59,12 +61,13 @@ class Chathandle extends Component{
 
                 </div>
                 {
-                    this.context.state.chats.length> 0&&
-                    this.context.state.chats.sort((a,b)=>{return new Date(a.createdAt.seconds*1000) - new Date(b.createdAt.seconds*1000);}).map((chat,i)=>{
+                    messages.length> 0&&
+                    messages.map((chat,i)=>{
+                        //messages.sort((a,b)=>{return new Date(a.createdAt.seconds*1000) - new Date(b.createdAt.seconds*1000);})
                         let time = ''
                         let am = 'am'
-                        if(chat.createdAt){
-                            const date = new Date(chat.createdAt.seconds*1000)
+                        // if(chat.createdAt){
+                            const date = new Date()
                             let h = date.getHours()
                             let min = date.getMinutes()
                             if(h>12){
@@ -78,20 +81,20 @@ class Chathandle extends Component{
                             h = h< 10 ? '0'+ h:h
                             min = min< 10? '0'+min:min
                             time = h +':'+min+' '+am
-                        }
+                        //}
   
                         return(
                         <div key={i}>
                             {
-                                chat.senderId === this.context.state.user.uid?
+                                chat.user_id === this.context.state.user.id?
                                 <div className="receiving-message">
-                                <p>{chat.message}</p>
+                                <p>{chat.messages}</p>
                                 <span>{time}</span>
 
                             </div>
                                 :
                                 <div className="sending-message">
-                                <p>{chat.message}</p>
+                                <p>{chat.messages}</p>
                                 <span>{time}</span>
 
                             </div>

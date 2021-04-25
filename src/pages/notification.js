@@ -2,25 +2,26 @@ import React, {Component} from "react"
 import "../css/notification.css"
 import Layout from "../components/layout"
 import good from "../images/good.jpg"
+import {withRouter} from "react-router-dom"
+import Context from "../components/context";
 import firebase from "../database/users"
 
 class Notification extends Component {
+    static contextType=Context
+
     constructor(props) {
         super(props);
         this.state ={
-            notification: true,
-            image: true,
+            friendId:"",
+            postId:"",
+            comment_id:"",
+            notification_item_id:""
+            
+        
         }
     }
     
 
-
-
-
-
-
-
-    
     render(){
         return(
             <Layout>
@@ -71,4 +72,5 @@ class Notification extends Component {
         )
     }
 }
-export default Notification;
+export default withRouter(Notification);
+

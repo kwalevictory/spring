@@ -10,9 +10,10 @@
     margin-left: 10px;
     padding: 10px;
 }
-.comments{
-    margin-top: -2px;
 
+.comment p{
+    margin-top: -2px;
+    font-size: 14px;
 }
 .comment-post{
     display: flex;
@@ -22,8 +23,11 @@
     
 }
 .comment-post .comment-name h1{
-    font-size: 1rem;
-    position: relative;
+        /* font-size: 1rem; */
+        position: relative;
+        font-size: 13px;
+        /* margin-top: -4px; */
+        top: -6px;
 }
 .comment-post .comments p{
     left: 12px;
@@ -34,15 +38,15 @@
     align-items: center;
     justify-content: space-around;
     width: 60%;
-    margin-left: 35px;
-    margin-top: 12px;
+    margin-left: 55px;
+    margin-top: 3px;
 }
 
 .previous-replies{
     position: relative;
-    left: 23px;
+    left: 52px;
     color: cadetblue;
-    margin-top: 12px;
+    margin-top: -2px;
 }
 .reply-many> img{
     position: relative;

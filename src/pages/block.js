@@ -11,7 +11,7 @@ class Block extends Component{
                         <p>Block, Suspended User Profil</p>
                     </div>
                     <div className="block-profil">
-                        <button>Totally Block</button>
+                        <button>Blocking</button>
                     </div>
                     <div className="suspended-user">
                         <button>Suspended For 10 Days</button>

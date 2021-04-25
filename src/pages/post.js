@@ -34,14 +34,24 @@ const Post = ({location})=>{
             {
                 state.posts?
                 state.posts.map(((post, i)=>{
-                   return <Posts key={i} post={{...post.data(), id:post.id}} user={state.user}/>
+                   return <Posts key={i} post={{...post}} user={state.user}/>
                 }))
                 :''
             }
             {
                 pops&&
                 <div className="pops">
+                    <button className="btn-pops"><i className="fa fa-camera"></i>VIVE</button>
+                    <button className="btn-pops"><i className="fa fa-camera"></i>POST </button>
 
+                    <button className="btn-pops"><i className="fa fa-circle"></i>OFFICIAL</button>
+
+                    <button className="btn-pops"><i className="fa fa-camera"></i>PROMOTE </button>
+
+
+
+
+                
                 </div>
             }
             <button onClick={()=>setPops(!pops)} className="fab">

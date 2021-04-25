@@ -36,7 +36,7 @@ class EditProfile extends Component{
                 </label>
                 <div className="banner">
                     <img src={this.state.bannerPic?this.state.bannerPic:this.context.state.profile.bannerPic?this.context.state.profile.bannerPic:good} alt=""/>
-                    <input type="file" id="profileBanner" onChange={this.uploadBanner} style={{display:'none'}} name="profileBanner" />
+                    <input type="file" id="profileBanner"  onChange={this.uploadBanner} style={{display:'none'}} name="profileBanner" />
                     <div className="profile-image">
                         <input type="file" id="profilePics" onChange={this.getImages} style={{display:'none'}} name="profilePic" />
                         <img  style={{height:'100%', width:'100%',borderRadius:'50%'}} src={this.state.profilePic?this.state.profilePic:this.context.state.user.photoURL?this.context.state.user.photoURL:good} alt=""/>

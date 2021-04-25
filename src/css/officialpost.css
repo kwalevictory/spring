@@ -1,0 +1,39 @@
+.officialpost{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+.officialpost i{
+    margin-top: -28px;
+    margin-left: 12px;
+}
+.officialpost h4{
+    margin-left: 10px;
+    margin-top: -27px;
+}
+.textofficial textarea{
+    width: 94%;
+    height: 90px;
+    outline: auto;
+    border: 1px solid #cccccc;
+    padding: 10px 3%;
+}
+.textofficial textarea:focus{
+    border-color: rgba(50, 9, 163, 0.486);
+}
+.official-camera{
+    margin-left: 302px;
+}
+.official-send button{
+    width: 100%;
+    padding:8px 0;
+    color:#fff;
+    background: rgba(50, 9, 163, 0.486);
+    border:none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: 0;
+}
+
+

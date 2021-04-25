@@ -2,7 +2,6 @@ import React, {Component} from "react"
 import "../css/friends.css"
 import Layout from "../components/layout"
 import good from "../images/good.jpg"
-import firebase from "../database/users"
 
 
 

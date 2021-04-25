@@ -7,7 +7,9 @@ import good from "../images/good.jpg"
 
 class Newsupdate extends Component {
     componentDidMount() {
-        fetch('http://newsapi.org/v2/everything?q=everything&from=2020-10-01&sortBy=publishedAt&apiKey=4b551f364d824e558cf327ba91353d39',{mode: 'no-cors' })
+        fetch('http://newsapi.org/v2/top-headlines?' +
+        'country=us&' +
+        'apiKey=4b551f364d824e558cf327ba91353d39',{mode: 'no-cors' })
         .then(res=>res.json())
         .then(res=>{
             console.log(res)
@@ -47,23 +49,7 @@ class Newsupdate extends Component {
                       </div>
 
                 </div>
-                <div className="newsline-footer newsline-wrap">
-                    <p>
-                        <span><i className="fa fa-thumbs-up"></i></span>
-                        34
-
-                    </p>
-                    <ul>
-                        <li>
-                            <span><i className="fa fa-thumbs-up"></i>3</span>
-                        </li>
-                        <li>
-                            <span>icon</span>
-                            <span>icon</span>
-                        </li>
-                    </ul>
-
-                </div>
+                
 
             </Layout>
         )

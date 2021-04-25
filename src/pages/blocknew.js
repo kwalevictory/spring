@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import "../css/blocknew.css"
 import Layout from "../components/layout"
-// import BlockUi from 'react-block-ui';
+
 
 
 

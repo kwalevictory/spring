@@ -1,27 +1,37 @@
 .text-box{
     width: 100%;
     position: relative;
-    margin-top: 160px;
+    margin-top: 214px;
+}
+.text-boxx {
+    display: flex;
+}
+.text-boxx>img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
 
+}
+.text-boxx button{
+    position: absolute;
+    margin-left: 274px;
+    margin-top: 17px;
+    outline: none;
+    background: none;
+    border: none;
+    font-size: 15px;
+    color: darkturquoise;
 }
 .text-box textarea {
     position: relative;
-    width: 91%;
-    height: 25px;
-    padding: 0px 10px;
+    width: 79%;
+    height: 45px;
+    padding: 13px 16px;
     box-sizing: border-box;
     border: 1px solid black;
     resize: none;
-    border-radius: 12px;
+    border-radius: 21px;
     margin-left: 16px;
     outline: 0;
 }
- .text-comments {
-    position: absolute;
-    margin-left: -36px;
-    margin-top: 3px;
-    background: none;
-    border: none;
-    font-size: 19px;
-    color: lime;
-}
+

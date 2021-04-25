@@ -30,11 +30,17 @@ import Login from "../pages/login"
 import Adverts from "../pages/adverts"
 import Viewjob from "../pages/viewjob";
 import Splash from "../pages/splash";
+import OfficialPost from "../pages/officialPost"
 import Chathandle from "../pages/chathandle";
 import PublicRoute from "./publicRoute";
 import AuthRoute from "./authRoute";
+import Listblock from "../pages/listblock";
+import Reply from "../pages/reply";
+
+
 const Auth = ()=>{
     const {state} = useContext(Context)
+
     return(
         <>
         {
@@ -42,65 +48,42 @@ const Auth = ()=>{
             <Splash/>
             :
             <>
+            <AuthRoute  Component={Newsupdate} path="/newsupdate"/>
             <AuthRoute  Component={Chathandle} path="/chathandle"/>
             <AuthRoute Component={Viewjob} path="/viewjob"/>
             <AuthRoute Component={Adverts} path="/adverts"/>
-            <Route path="/taguser">
-              <Taguser/>
-            </Route>
-            <Route path="/report">
-              <Report/>
-            </Route>
-            <Route path="/suspended">
-              <Suspended/>
-            </Route>
-            <Route path="/block">
-              <Block/>
-            </Route>
-            <Route path="/blocknew">
-              <Blocknew/>
-            </Route>
-            <Route path="/livevideofinish">
-                <LiveVideoFinish/>
-            </Route>
-            <Route path="/livevideo">
-                <Video/>
-            </Route>
-            <Route path="/live">
-                <LiveVideo/>
-            </Route>
-            <Route path="/watch">
-                <Watch/>
-            </Route>
-            <Route path="/newsupdate">
-              <Newsupdate/>
-            </Route>
-            <Route path="/comment">
-              <Comment/>
-            </Route>
-            <Route path="/newpost">
-              <CreatePost/>
-            </Route>
-            <Route path="/search">
-              <Search/>
-            </Route>
-            <Route path="/notification">
-              <Notification/>
-            </Route>
-            <Route path="/jobplacement">
-              <Jobplacement/>
-            </Route>
-            <Route path="/chat">
-              <Chat/>
-            </Route> 
+            <AuthRoute Component={Report} path="/report"/>
+            <AuthRoute Component={Suspended} path="/suspended"/>
+            <AuthRoute Component={Blocknew} path="/blocknew"/>
+            <AuthRoute Component={LiveVideoFinish} path="livevideofinish"/>
+            <AuthRoute Component={LiveVideo} path="/livevideo"/>
+            <AuthRoute Component={Search} path="/search"/>
+            <AuthRoute Component={Notification} path="/notification"/>
+            <AuthRoute Component={Jobplacement} path="/jobplacement"/>
+            <AuthRoute Component={Comment} path="/comment"/>
+            <AuthRoute Component={Reply} path="/reply"/>
+            <AuthRoute Component={OfficialPost} path="/officialPost"/>
+
+
+
+            <AuthRoute Component={Chat} path="/chat"/>
+            <AuthRoute Component={Listblock} path="/listblock"/>
+            <AuthRoute Component={Block} path="/block"/>
+            <AuthRoute Component={Taguser} path="/taguser"/>
+
+
+
+
+        
+            <AuthRoute Component={Watch} path="/watch"/>
+            
             <AuthRoute Component={Post} path="/post/:user"/>
             <AuthRoute Component={Friends} path="/friends"/>
-            <Route path="/friend-request">
-              <FriendRequest />
-            </Route>
-            <Route path="/edit-profile">
-              <EditProfile/>
-            </Route>
+
+            <AuthRoute Component={Dashboard} path="/dashboard"/>
+            <AuthRoute Component={CreatePost} path="/newpost"/>
+            <AuthRoute Component={FriendRequest} path="/friend-request"/>
+            <AuthRoute Component={EditProfile} path="/editprofile"/>
             <Route path="/profile">
               <Profile/>
             </Route>
@@ -114,4 +97,4 @@ const Auth = ()=>{
         </>
     )
 }
-export default Auth
+export default Auth;

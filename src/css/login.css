@@ -115,6 +115,7 @@
 	background: transparent;
 	border: 2px solid #fff;
 	border-radius: 20px;
+	outline: none;
 
 }
 .form form .btn-register{
@@ -133,6 +134,11 @@
 }
 #register{
 	display: none;
+}
+.show-message{
+	position: relative;
+    top: 58px;
+    left: 36px;
 }
 .content{
 	display: grid;

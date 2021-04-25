@@ -9,14 +9,34 @@ import Context from "../components/context"
 class FriendRequest extends Component {
 	
 	static contextType = Context
-
+	state ={
+		loading:false
+	}
 	componentDidMount(){
-		this.context.getUsers();
-		this.context.getFriendsRequest()
+		
 	}
 
+	cancelRequest=(userId)=>{
+		this.context.updateFriends(0, userId)
+	}
+	dismissFriend=(userId)=>{
+		this.context.updateUsers(-1, userId)
+	}
+	confirmFriend=(userId)=>{
+		this.context.updateFriends(2, userId)
+	}
+
+	addFriend = (userId)=>{
+		this.setState({loading:true})
+		this.context.updateUsers(1, userId)
+		.then(()=>{
+			this.setState({loading:false})
+		})
+		.catch(e=>{
+			this.setState({loading:false})
+		})
+	}
     render(){
-		// console.log(this.context.state.userData)
         return(
             <Layout>
 				<div className="continal-request">
@@ -26,10 +46,11 @@ class FriendRequest extends Component {
 
 					</div>
 					{
-						this.context.state.requests.length>0&&
-						this.context.state.requests.map((friend,i)=>{
+						this.context.state.users.length>0&&
+						this.context.state.users.map((friend,i)=>{
 							// const date = new Date(friend.createdAt.seconds*1000).getDate()
-							if(!friend.accepted)
+
+							if((friend.status === 1 && (this.context.state.user.id !== friend.action_user && (friend.user_id ===this.context.state.user.id || this.context.state.user.id === friend.friend_id))) || (friend.status === 2 && friend.action_user ===this.context.state.user.id))
 							return(
 								<div key={i}>
 									<div className="friendship">
@@ -47,27 +68,24 @@ class FriendRequest extends Component {
 										<img src={good} alt=""/>
 
 									</div>
-									<div className="completed">
-										<div className="completedimage">
-											<img src={good} alt=""/>
-											<div className="mutual">
-												<p>10 mutual friends</p>
+
+									
+									
+									{
+										friend.status === 2?
+										<p>You are now friends</p>
+										:
+										<>
+										<div className="confirm">
+										<button onClick={()=>this.confirmFriend(friend.id)}>Confirm</button>
+											</div>
+											<div className="delete">
+												<button onClick={()=>this.cancelRequest(friend.id)}>Delete</button>
 
 											</div>
+										</>
+									}
 
-										</div>
-
-									</div>
-									
-									
-			
-									<div className="confirm">
-										<button onClick={()=>this.context.confirmRequest(friend)}>Confirm</button>
-									</div>
-									<div className="delete">
-										<button onClick={()=>this.context.deleteRequest(friend)}>Delete</button>
-
-									</div>
 			
 								</div>
 								
@@ -89,13 +107,12 @@ class FriendRequest extends Component {
 							<h4>Add People You Many Known</h4>
 						</div>
 						{
-							this.context.state.userData&&
 							this.context.state.users.map((user, i)=>{
-								const confirmedFriends = this.context.state.userData.friends.filter(item=>item.status===true && item.id === user.id)
-								const friend = this.context.state.userData.friends.filter(item=>item.id === user.id)
-								const deleted = this.context.state.userData.deleted.filter(item=>item === user.id);
-								
-								if(!deleted.length >0 && confirmedFriends.length <1)
+								// const confirmedFriends = this.context.state.userData.friends.filter(item=>item.status===true && item.id === user.id)
+								// const friend = this.context.state.userData.friends.filter(item=>item.id === user.id)
+								// const deleted = this.context.state.userData.deleted.filter(item=>item === user.id);
+				
+								if(user.status >= 0 && user.status !==2 &&  (user.action_user === this.context.state.user.id || user.action_user === null))
 								return(
 									<div className="add-suggested-friend" key={i}>
 										<div className="addname">
@@ -103,10 +120,10 @@ class FriendRequest extends Component {
 	
 										</div>
 										<div className="addimage">
-											<img src={user.photoURL !== null?user.photoURL:good} alt=""/>
+											<img src={user.image !== null?user.image:good} alt=""/>
 	
 										</div>
-										<div className="addmutual">
+										{/*<div className="addmutual">
 											<div className="mutualimage">
 												<img src={good} alt=""/>
 												<div className="mutualss">
@@ -115,23 +132,35 @@ class FriendRequest extends Component {
 												</div>
 	
 											</div>
-	
+											
+									   <div className="completed">
+										<div className="completedimage">
+											<img src={good} alt=""/>
+											<div className="mutual">
+												<p>10 mutual friends</p>
+
+											</div>
+
 										</div>
+
+									</div>
+	
+								</div>*/}
 										<div className="action-btns">
 											<div className="addconfirm">
 												{
-													!friend.length>0?
-													<button onClick={()=>{this.context.sendFriendRequest(user)}}>Add frie...</button>
-													:
-													<button onClick={()=>{this.context.cancelFriendRequest(user)}}>Cancel Request</button>
+													!user.status?
+													 <button onClick={()=>{this.addFriend(user.id)}}>{'Add ...'}</button>
+													 :
+													 <button className onClick={()=>{this.cancelRequest(user.id)}}>Cancel Request</button>
 												}
 
 								
 											</div>
 												{
-													!friend.length>0&&
+													!user.status&&
 													<div className="remove">
-														<button onClick={()=>this.context.removeUser(user)}>Remove</button>
+														<button onClick={()=>this.dismissFriend(user.id)}>Dismiss</button>
 													</div>
 												}
 										</div>

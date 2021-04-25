@@ -41,8 +41,8 @@ class Comment extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="replys-many">
-                    <time>2 hrs</time>
+                <div className="reply">
+                    <time>3 hrs</time>
                     <p>Like</p>
                     <h7>Reply</h7>
 

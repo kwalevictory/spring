@@ -9,8 +9,8 @@ const PublicRoute = ({Component:Component, ...rest})=>{
         <Route {...rest} render={props=>{
             return(
             state.user?
-            <Redirect to={`/post/${state.user.uid}`}/>
-            :
+            <Redirect to={`/post/${state.user.username}`}/>
+            : 
             <Component {...props}/>
         )}}/>
     )

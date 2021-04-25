@@ -1,19 +1,15 @@
-.search-userss{
-    width: 100%;
-    position: relative;
 
-}
-.search-userss input{
+.spring-search i{
     position: absolute;
-    width: 316px;
-    height: 40px;
-    margin-left: 8px;
-    border-radius: 20px;
-    outline: 0;
+    margin-left: 6px;
 }
-.search-userss p{
-    position: relative;
-    margin-left: 41px;
-    bottom: -7px;
+.spring-search textarea{
+    border-radius: 21px;
+    width: 233px;
+    margin-left: 58px;
+    padding: 5px 9px;
+    outline: none;
+    height: 20px;
+
 }
 

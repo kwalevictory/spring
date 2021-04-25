@@ -32,7 +32,8 @@ const Header = ({history})=>{
             </a>
             <input type="file" onChange={navigate} multiple id="images" style={{display:'none'}}/>
             <label htmlFor="images">
-                    <i className="fa fa-camera" aria-hidden="true"></i>
+                    <i class="fa fa-bell" aria-hidden="true"></i>
+
             </label>
 
         </div>

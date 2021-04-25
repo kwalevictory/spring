@@ -2,8 +2,6 @@ import React, { Component } from "react"
 import "../css/watch.css"
 import Layout from "../components/layout"
 import ProfileIcon from "../components/profileicon";
-// import good from "../images/good.jpg"
-// import { database } from "firebase";
 
 
 

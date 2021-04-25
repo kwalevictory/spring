@@ -14,15 +14,18 @@
 	margin-left: 12px;
 
 }
+.friendships p{
+	position: relative;
+    margin-left: 120px;
+}
 .relationship {
 	margin-top: -5px;
     color: forestgreen;
     font-size: 14px;	
 }
 .friendship{
+	position: absolute;
 	
-	/* margin-top: 24px; */
-	margin-left: 12px;
 
 }
 .number{
@@ -30,14 +33,16 @@
     margin-left: 314px;
 }
 .requestimage> img{
-	height: 90px;
-	width: 90px;
-	border-radius: 60px;
-	margin-left: 12px;
-	margin-top: 12px;
+	
+	height: 141px;
+    max-width: 98px;
+    border-radius: 18px;
+    margin-left: 2px;
+
 }
 .requestimage{
-    /* margin-top: 59px; */
+	margin-top: 13px;
+    margin-left: 12px;
 }
 .completedimage> img{
 	height: 40px;
@@ -68,7 +73,8 @@
     font-size: 15px;
 }
 .confirm{
-	margin-top: 14px;
+	margin-top: -34px;
+    margin-left: 108px;
 
 }
 .confirm button{
@@ -83,8 +89,8 @@
     font-size: 15px;	
 }
 .delete{
-	margin-left: 104px;
-	margin-top: -25px;
+	margin-left: 209px;
+    margin-top: -25px;
 
 }
 .delete button{
@@ -99,14 +105,16 @@
 
 }
 .addimage> img{
-	height: 90px;
-    width: 90px;
-	border-radius: 50px;
-	margin-left: 2px;
+	height: 141px;
+    max-width: 98px;
+    border-radius: 18px;
+    margin-left: 2px;
 
 }
 .addname p{
-	margin-left: 2px;
+	margin-top: 13px;
+    position: absolute;
+    margin-left: 108px;
 
 }
 .peoples{
@@ -156,9 +164,9 @@
     font-size: 15px;
 }
 .addconfirm{
-		margin-top: 25px;
-		/* position: absolute; */
-		margin-left: -8px;
+	margin-top: -29px;
+    /* position: absolute; */
+    margin-left: 95px;
 
 }
 .addconfirm button{
@@ -174,9 +182,10 @@
 }
 
 .remove{
-	/* position: absolute; */
-    margin-top: 25px;
-    /* margin-left: 96px; */
+	    /* position: absolute; */
+		margin-top: -29px;
+		/* margin-left: 96px; */
+		margin-left: 12px;
 }
 .remove button{
 	width: 82px;

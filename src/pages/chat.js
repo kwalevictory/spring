@@ -9,9 +9,10 @@ class Chat extends Component {
 	static contextType = Context
 
 	componentDidMount(){
-		this.context.getHistoryChat()
+		// this.context.getHistoryChat()
 	}
     render(){
+		console.log(this.context.state.friends)
         return(
             <Layout>
                 
@@ -19,13 +20,11 @@ class Chat extends Component {
 		<div className="previews-inners">
 			<div className="carousels">
 				{
-					this.context.state.userData&&
-					this.context.state.userData.friends&&
-					this.context.state.userData.friends.map((friend, i)=>{
+					this.context.state.friends.map((friend, i)=>{
 						return(
 							<Link to={'chathandle/'+friend.id} key={i}>
 							<div className="items">
-								<img src={friend.photoURL?friend.photoURL:good} alt={friend.firstname}/>
+								<img src={friend.image?friend.image:good} alt={friend.firstname}/>
 								<h4>{friend.firstname}</h4>
 							</div>
 						</Link>

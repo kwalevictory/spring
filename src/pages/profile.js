@@ -4,7 +4,6 @@ import Layout from "../components/layout";
 import best from "../images/good.jpg"
 import "../css/profile.css"
 import Context from "../components/context";
-import {firestore} from "../database/users"
 
 class Profile extends Component{
     static contextType = Context
@@ -64,35 +63,36 @@ class Profile extends Component{
             alert('Nationality, date of birth, gender and about must not be empty');
             return
         }
-        firestore.collection('profile').doc(this.context.state.user.uid).set({
-            nationality:this.state.nationality,
-            state:this.state.state,
-            city:this.state.city,
-            address:this.state.address,
-            phone:this.state.phone,
-            gender:this.state.gender,
-            birthdate:this.state.nationality,
-            institution:this.state.institution,
-            program:this.state.program,
-            religion:this.state.religion,
-            language:this.state.language,
-            interested:this.state.interested,
-            nickname:this.state.nickname,
-            about:this.state.about
-        })
-        .then(()=>{
-            this.props.history.push('/post')
-        })
+        // firestore.collection('profile').doc(this.context.state.user.uid).set({
+        //     nationality:this.state.nationality,
+        //     state:this.state.state,
+        //     city:this.state.city,
+        //     address:this.state.address,
+        //     phone:this.state.phone,
+        //     gender:this.state.gender,
+        //     birthdate:this.state.nationality,
+        //     institution:this.state.institution,
+        //     program:this.state.program,
+        //     religion:this.state.religion,
+        //     language:this.state.language,
+        //     interested:this.state.interested,
+        //     nickname:this.state.nickname,
+        //     about:this.state.about
+        // })
+        // .then(()=>{
+        //     this.props.history.push('/post')
+        // })
     }
     render(){
-        firestore.collection('profile').doc(this.context.state.user.uid).get()
-        .then(res=>{
-            if(res.data())
-            {
-                this.props.history.push('/edit-profile')
-                return null
-            }
-        })
+        console.log(this.context.state.profile)
+        // firestore.collection('profile').doc(this.context.state.user.uid).get()
+        // .then(res=>{
+        //     if(res.data())
+        //     {
+        //         this.props.history.push('/edit-profile')
+        //         return null
+        //     }
+        // })
         return (
             <Layout>
                 <div className="profile">

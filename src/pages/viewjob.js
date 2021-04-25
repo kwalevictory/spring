@@ -10,13 +10,14 @@ import Context from "../components/context";
 
 class Viewjob extends Component{
     static contextType=Context
-    componentDidMount(){
-        this.context.jobPlacement()
+    // componentDidMount(){
+    //     this.context.jobPlacement()
 
-    }
+    // }
 
     render(){
         const jobs=this.context.state.jobs
+        console.log(jobs)
         return(
             <Layout>
                 {
@@ -38,14 +39,14 @@ class Viewjob extends Component{
                 </div>
                 <div className="details-job">
                     <h2>Job Title</h2>
-                        <p>{job.jobtitle}</p>
+                        <p>{job.job_title}</p>
                     <h2>Job Location</h2>
-                        <p>{job.joblocation}</p>
+                        <p>{job.job_location}</p>
                     <h2>Job Application Email</h2>
-                        <p>{job.jobapplicationemail}</p>
+                        <p>{job.job_application_email}</p>
                     <h2>Job Description</h2>
-                        <p>{job.jobdescription}</p>
-                    <h2>10/4/2020</h2>
+                        <p>{job.job_description}</p>
+                    
                 </div>
             
                             </>

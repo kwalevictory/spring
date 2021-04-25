@@ -6,26 +6,18 @@ class Search extends Component {
     constructor(props) {
         super(props)
         this.state ={
-            
+        
         }
     }
+    
     render(){
         return(
             <Layout>
-                <div className="search-userss">
-                    <div className="user-search">  
-                            
-                        <input type="text" placeholder="Search..."/>
-                        
-
-                    </div>
-
-                     
-
+                <div className="spring-search">
+                    <i>icon</i>
+                    <textarea placeholder="Search...." />       
                 </div>
-                
-                
-                
+            
             </Layout>
         )
     }

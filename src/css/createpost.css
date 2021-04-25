@@ -4,14 +4,14 @@
     margin-bottom: 20px;
     position: relative;
 }
-.createpost .personal-profile + .textarea textarea{
+.createpost .personal-profile + .textare textarea{
     width: 94%;
     height: 90px;
     outline: 0;
     border: 1px solid #cccccc;
     padding: 10px 3%;
 }
-.createpost .personal-profile + .textarea textarea:focus{
+.createpost .personal-profile + .textare textarea:focus{
     border-color: rgba(50, 9, 163, 0.486);
 }
 .createpost .personal-profile .personal{

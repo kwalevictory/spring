@@ -1,0 +1,72 @@
+.list-block{
+}
+.list-me h2{
+    font-size: 15px;
+}
+.blockeded h4{
+    font-size: 15px;
+}
+.list-block p{
+    text-align: center;
+    color: blue;  
+}
+.drawline-lists{
+    border-bottom: 2px solid #dadada;
+    margin-left: -10px;
+    width: 361px;
+    margin-top: 10px;
+}
+.blokedlist{
+    border-bottom: 2px solid #dadada;
+    margin-left: -10px;
+    width: 361px;
+    
+	padding-top: 15px;
+	padding-bottom: 15px;  
+
+}
+.list-me{
+    margin-top: 4px;
+}
+.block-itews{
+    margin-top: 5px;
+
+}
+.blockeded{
+    margin-top: 3px;
+
+}
+.lock-list{
+    border-bottom: 2px solid #dadada;
+    margin-left: -10px;
+    width: 361px;
+    /* padding-top: 15px; */
+    padding-bottom: 7px; 
+    position: absolute;   
+}
+.action-block{
+    border-bottom: 2px solid #dadada;
+	padding-top: 15px;
+	padding-bottom: 15px;  
+}
+.action-itews> img{
+    margin-left: -21px;
+    width: 40px;
+    height: 39px;
+    margin-top: 2px;
+}
+.action-itews{
+    display: flex;
+    justify-content: space-evenly;  
+}
+.action-itews p{
+    margin-top: 6px;
+}
+.action-itews button{
+        width: 92px;
+        margin-top: 10px;
+        height: -16px;
+        height: 25px;
+        color: blue;
+    
+}

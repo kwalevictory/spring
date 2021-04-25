@@ -25,6 +25,9 @@
 	margin-top: 10px;
 	font-size: 17px;
 }
+.timeline-body{
+	word-break: break-word;
+}
 .timeline .timeline-head time{
 	display: block;
 }

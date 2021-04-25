@@ -95,3 +95,27 @@ background-color: #02d480;
 /* @keyframes{
 
 } */
+.btn-pops{
+	cursor: pointer;
+	padding: 7px 23px;
+    position: relative;
+    height: 28px;
+    right: -5px;
+    border: none;
+    font-size: 11px;
+    width: 87px;
+    border-radius: 3px;
+   /* margin: 4px 2px;*/
+	outline: none;
+
+}
+.btn-pops i {
+	position: absolute;
+    left: 4px;
+    top: 9px;
+	font-size: 14px;
+
+}
+
+
+
